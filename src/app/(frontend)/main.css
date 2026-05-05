@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-alexandria: 'Alexandria', sans-serif;
+  --font-alice: "Alice", serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-alexandria);
+  @apply antialiased text-black bg-white;
+}
+
+/* Scroll Texte style */
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(198, 198, 198, 1);
+  padding: 20px 0;
+  white-space: nowrap;
+}
+.scroll-content {
+  display: block;
+  animation: scroll 30s linear infinite;
+}
+.scroll-content span {
+  padding: 0 20px;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+@keyframes scroll {
+  from {
+  transform: translateX(0);
+  }
+  to {
+  transform: translateX(-50%);
+  }
+}
+.scroll-container:hover .scroll-content {
+  animation-play-state: paused;
+}
+
+/* Home services */
+.services-section .grid{
+  margin-left: -0.2rem;
+  margin-right: -0.2rem;
+}
+
+.countnumber{
+  font-family: var(--font-alice);
+}
+
+.main-Footer .footer-bottom{
+  border-top-color: rgba(198, 198, 198, 0.4);
+}
+.footer-contact{
+  background-color: #000;
+  color: #fff;
+}
+.page-contact .footer-contact * {
+  color: #000;
+}
+.page-contact .footer-contact {
+  background: #fff;
+  color: #000;
+  padding-top: 0;
+}
+.page-contact .footer-contact .footer-contact-title,
+.page-contact .footer-contact .sup-title{
+  display: none;
+}
+.page-contact .contact-maps,
+.page-contact .footer-contact .contact-title{
+  display: block;
+}
+.page-contact .footer-contact form textarea,
+.page-contact .footer-contact form input {
+  border-color: #000;
+  color: #000;
+}
+.page-contact .footer-contact form button {
+  background-color: #000;
+  color: #fff;
+}
