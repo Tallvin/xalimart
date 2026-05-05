@@ -5,7 +5,7 @@ import CounterNumber from '@/components/CounterNumber'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    <section className="relative w-full overflow-hidden bg-black">
       {/* --- IMAGE DE FOND AVEC OVERLAY --- */}
       <div className="absolute inset-0 z-0">
         <img 

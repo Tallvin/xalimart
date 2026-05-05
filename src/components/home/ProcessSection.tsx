@@ -1,7 +1,7 @@
 // src/components/ProcessSection.tsx
 export default function ProcessSection() {
   return (
-    <section className="process-section home-section bg-black text-white py-24 px-6 md:px-12 lg:px-24">
+    <section className="process-section home-section bg-black text-white py-24">
       <div className="container mx-auto">
         
         {/* --- TITRE DE LA SECTION --- */}

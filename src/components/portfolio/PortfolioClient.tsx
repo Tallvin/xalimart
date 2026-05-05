@@ -10,7 +10,7 @@ const PROJECTS = [
     title: 'VIRTUOSE',
     category: 'Bureaux, Hôtellerie',
     year: '2025',
-    slug: 'virtuose',
+    slug: 'detail-projet',
     specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
     description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
     image: '/media/portfolio1.jpg',
@@ -20,7 +20,7 @@ const PROJECTS = [
     title: 'VILLA I.CHRISS',
     category: 'Résidentiel, Commercial',
     year: '2024',
-    slug: 'villa-i-chriss',
+    slug: 'detail-projet',
     specs: ['520 2 - Res. Villa R+1, Saly'],
     description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
     image: '/media/portfolio2.jpg',
@@ -30,7 +30,7 @@ const PROJECTS = [
     title: 'Bureau CDC',
     category: 'Résidentiel, Urbanisme',
     year: '2022',
-    slug: 'bureaux-cdc',
+    slug: 'detail-projet',
     specs: ['447 m² - Bur. SS+RDC+MEZZ+10 étages'],
     description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
     image: '/media/portfolio3.jpg',
@@ -40,7 +40,7 @@ const PROJECTS = [
     title: 'Muséé des forces armées',
     category: 'Édifices publics, Bureaux',
     year: '2023',
-    slug: 'musee-des-forces-armees',
+    slug: 'detail-projet',
     specs: ['623 m² - Type: Edifice Publics - 2023'],
     description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
     image: '/media/portfolio4.jpg',
@@ -159,7 +159,7 @@ export default function PortfolioClient() {
                   >
                     Voir le projet
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-all duration-300 group-hover/btn:rotate-[45deg] group-hover/btn:fill-white">
-                      <path fillRule="evenodd" clipRule="evenodd" d="M6.00022 4.5C5.86761 4.5 5.74044 4.44732 5.64667 4.35355C5.5529 4.25979 5.50022 4.13261 5.50022 4C5.50022 3.86739 5.5529 3.74021 5.64667 3.64645C5.74044 3.55268 5.86761 3.5 6.00022 3.5H12.0002C12.1328 3.5 12.26 3.55268 12.3538 3.64645C12.4475 3.74021 12.5002 3.86739 12.5002 4V10C12.5002 10.1326 12.4475 10.2598 12.3538 10.3536C12.26 10.4473 12.1328 10.5 12.0002 10.5C11.8676 10.5 11.7404 10.4473 11.6467 10.3536C11.5529 10.2598 11.5002 10.1326 11.5002 10V5.20667L4.35356 12.3533C4.25877 12.4417 4.13341 12.4897 4.00387 12.4874C3.87434 12.4852 3.75075 12.4327 3.65914 12.3411C3.56753 12.2495 3.51506 12.1259 3.51277 11.9963C3.51049 11.8668 3.55857 11.7414 3.64689 11.6467L10.7936 4.5H6.00022Z" fill="black"/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.00022 4.5C5.86761 4.5 5.74044 4.44732 5.64667 4.35355C5.5529 4.25979 5.50022 4.13261 5.50022 4C5.50022 3.86739 5.5529 3.74021 5.64667 3.64645C5.74044 3.55268 5.86761 3.5 6.00022 3.5H12.0002C12.1328 3.5 12.26 3.55268 12.3538 3.64645C12.4475 3.74021 12.5002 3.86739 12.5002 4V10C12.5002 10.1326 12.4475 10.2598 12.3538 10.3536C12.26 10.4473 12.1328 10.5 12.0002 10.5C11.8676 10.5 11.7404 10.4473 11.6467 10.3536C11.5529 10.2598 11.5002 10.1326 11.5002 10V5.20667L4.35356 12.3533C4.25877 12.4417 4.13341 12.4897 4.00387 12.4874C3.87434 12.4852 3.75075 12.4327 3.65914 12.3411C3.56753 12.2495 3.51506 12.1259 3.51277 11.9963C3.51049 11.8668 3.55857 11.7414 3.64689 11.6467L10.7936 4.5H6.00022Z" fill="black" className="group-hover/btn:fill-white"/>
                     </svg>
                   </Link>
                 </div>

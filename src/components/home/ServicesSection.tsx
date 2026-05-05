@@ -1,7 +1,7 @@
 // src/components/ServicesSection.tsx
 export default function ServicesSection() {
   return (
-    <section className="services-section home-section bg-[#D1D1D1] py-24 px-6 md:px-12 lg:px-24 text-black">
+    <section className="services-section home-section bg-[rgba(198, 198, 198, 1)] py-24 text-black">
       <div className="container mx-auto">
         
         {/* --- HEADER DE LA SECTION --- */}
@@ -9,10 +9,10 @@ export default function ServicesSection() {
           <div className="flex flex-col gap-6">
             {/* Label avec ligne */}
             <div className="flex items-center gap-4">
-              <span className="w-10 h-[1px] bg-gray-500"></span>
-              <span className="text-gray-600 tracking-widest text-[16px] font-normal">Services</span>
+              <span className="w-10 h-[1px] bg-[rgba(124, 124, 124, 1)]"></span>
+              <span className="text-[rgba(124, 124, 124, 1)] tracking-widest text-[16px] font-normal">Services</span>
             </div>
-            <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-[1.1] max-w-md">
+            <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase max-w-md">
               Ce que nous <br /> concevons.
             </h2>
           </div>

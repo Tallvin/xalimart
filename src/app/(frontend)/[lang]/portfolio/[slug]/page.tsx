@@ -1,56 +1,64 @@
-export function generateStaticParams() {
-  const langs = ['fr', 'en', 'ar']
-  const slugs = ['virtuose', 'villa-i-chriss']
-  return langs.flatMap(lang => slugs.map(slug => ({ lang, slug })))
-}
-
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import VideoSection from '@/components/home/VideoSection'
+import Fancybox from '@/components/Fancybox'
 
-// Cette fonction simulée récupère les données via Payload CMS plus tard
 async function getProjectData(slug: string, lang: string) {
-  // Simuler une récupération de données
   return {
     title: "VILLA I.CHRISS",
     location: "Dakar, Sénégal",
     year: "2023",
     surface: "1 500 m²",
     client: "Privé",
-    mainImage: "/media/portfolio1.jpg",
-    gallery: ["/media/portfolio1.jpg", "/media/portfolio2.jpg", "/media/portfolio3.jpg"],
+    mainImage: "/media/singleproject/single1.jpg",
+    gallery: [
+      "/media/singleproject/single2.jpg", 
+      "/media/singleproject/single3.jpg", 
+      "/media/singleproject/single4.jpg", 
+      "/media/singleproject/single5.jpg", 
+      "/media/singleproject/single6.jpg"
+    ],
     description: "UNE RÉSIDENCE PENSÉE POUR L'EXCELLENCE.",
     prevSlug: "projet-precedent",
     nextSlug: "projet-suivant"
   }
 }
 
-export default async function ProjectDetails({ params }: { params: { slug: string, lang: string } }) {
-  const { slug, lang } = await params
-  const project = await getProjectData(slug, lang)
+export async function generateStaticParams() {
+  return [
+    { lang: 'fr', slug: 'detail-projet' }
+  ];
+}
+export const dynamicParams = false;
+
+export default async function ProjectDetails({ params }: { params: Promise<{ slug: string, lang: string }> }) {
+  const resolvedParams = await params;
+  const { slug, lang } = resolvedParams;
+  const project = await getProjectData(slug, lang);
 
   return (
     <main className="bg-white">
         
-        <Breadcrumbs />
+      <Breadcrumbs />
 
-      {/* 1. HEADER DÉTAILS & NAVIGATION PREV/NEXT */}
-      <section className="pb-12">
-        <div className="container mx-auto px-6">
+      {/* Single-top */}
+      <section className="single-top pb-12">
+        <div className="container mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <Link href={`/${lang}/${project.prevSlug}`} className="text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
+            <Link href={`/${lang}/${project.prevSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
                 <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.11706 2.66274C-0.0391501 2.81895 -0.0391501 3.07222 0.11706 3.22843L2.66264 5.77401C2.81885 5.93022 3.07212 5.93022 3.22833 5.77401C3.38454 5.6178 3.38454 5.36454 3.22833 5.20833L0.965588 2.94559L3.22833 0.682845C3.38454 0.526636 3.38454 0.27337 3.22833 0.11716C3.07212 -0.0390496 2.81885 -0.0390496 2.66264 0.11716L0.11706 2.66274ZM0.399902 2.94559V3.34559H30.6654V2.94559V2.54559H0.399902V2.94559Z" fill="#7C7C7C"/>
                 </svg>
                 Précédent
             </Link>
-            <div className="text-center">
-              <span className="text-[12px] uppercase tracking-[0.3em] text-gray-400 block mb-2">Projet Immobilier</span>
-              <h1 className="text-[32px] md:text-[45px] font-bold uppercase tracking-tight">{project.title}</h1>
-              <p className="text-gray-500 font-light italic mt-2">{project.location}</p>
+            <div className="text-center text-[16px] font-light text-black">
+              <span className="uppercase block mb-2">Projet Immobilier</span>
+              <h1 className="text-[32px] md:text-[45px] font-extrabold uppercase">{project.title}</h1>
+              <div className="mt-2">{project.location}</div>
             </div>
-            <Link href={`/${lang}/${project.nextSlug}`} className="text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
+            <Link href={`/${lang}/${project.nextSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
                 Suivant
                 <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30.5483 3.22843C30.7045 3.07222 30.7045 2.81895 30.5483 2.66274L28.0028 0.11716C27.8465 -0.0390496 27.5933 -0.0390496 27.4371 0.11716C27.2809 0.27337 27.2809 0.526636 27.4371 0.682845L29.6998 2.94559L27.4371 5.20833C27.2809 5.36454 27.2809 5.6178 27.4371 5.77401C27.5933 5.93022 27.8465 5.93022 28.0028 5.77401L30.5483 3.22843ZM0 2.94559V3.34559H30.2655V2.94559V2.54559H0V2.94559Z" fill="#7C7C7C"/>
@@ -60,40 +68,41 @@ export default async function ProjectDetails({ params }: { params: { slug: strin
         </div>
       </section>
 
-      {/* 2. IMAGE PRINCIPALE (FULL WIDTH) */}
-      <section className="w-full h-[70vh] relative overflow-hidden">
+      {/* Single bannière */}
+      <section className="single-banner w-full h-[70vh] relative overflow-hidden">
         <Image 
-          src={project.mainImage} 
-          alt={project.title} 
+          src="/media/singleproject/single1.jpg" 
+          alt=""
           fill 
           className="object-cover"
           priority 
         />
       </section>
 
-      {/* 3. INFOS TECHNIQUES & DESCRIPTION */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16">
+      {/* Single description */}
+      <section className="single-description py-20 md:py-30">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
           <div className="md:col-span-7">
-            <h2 className="text-[28px] font-bold uppercase mb-6 leading-tight">
+            <h2 className="text-[40px] font-extrabold uppercase mb-6">
               Une résidence<br />pensée pour l'excellence.
             </h2>
-            <div className="text-gray-500 font-light leading-relaxed space-y-4">
-              <p>Au-delà de l'esthétique, la villa I.CHRISS incarne une vision moderne de l'habitat...</p>
+            <div className="text-[16px] font-light space-y-4">
+              <p>La Résidence Teranga est un ensemble résidentiel haut de gamme conçu pour offrir une expérience de vie sans compromis. </p>
+              <p>Implantée dans le quartier prisé des Almadies à Dakar, cette réalisation incarne la vision de Xalim’Art Group : créer des espaces qui élèvent le quotidien et s'inscrivent durablement dans leur environnement.</p>
             </div>
           </div>
           
           <div className="md:col-span-5">
-            <div className="border-t border-gray-200">
+            <div className="">
               {[
                 { label: "Client", value: project.client },
                 { label: "Année", value: project.year },
                 { label: "Superficie", value: project.surface },
                 { label: "Localisation", value: project.location }
               ].map((info, idx) => (
-                <div key={idx} className="flex justify-between py-4 border-b border-gray-100 uppercase tracking-widest text-[11px]">
-                  <span className="text-gray-400 font-medium">{info.label}</span>
-                  <span className="text-black font-bold">{info.value}</span>
+                <div key={idx} className="flex justify-between py-4 border-b border-gray-100 last:border-none text-[16px]">
+                  <span className="text-black font-semibold">{info.label}</span>
+                  <span className="text-black/50 font-light">{info.value}</span>
                 </div>
               ))}
             </div>
@@ -101,64 +110,148 @@ export default async function ProjectDetails({ params }: { params: { slug: strin
         </div>
       </section>
 
-      {/* 4. GRILLE DE GALERIE ASYMÉTRIQUE */}
-      <section className="pb-20">
-        <div className="container mx-auto px-6 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="relative aspect-[16/10] bg-gray-100"><Image src="/media/portfolio1.jpg" fill alt="img" className="object-cover"/></div>
-            <div className="relative aspect-[16/10] bg-gray-100"><Image src="/media/portfolio2.jpg" fill alt="img" className="object-cover"/></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-             <div className="relative aspect-square bg-gray-100"><Image src="/media/portfolio3.jpg" fill alt="img" className="object-cover"/></div>
-             <div className="relative aspect-square bg-gray-100"><Image src="/media/portfolio2.jpg" fill alt="img" className="object-cover"/></div>
+      {/* single Galerie */}
+      <section className="single-gallery py-12">
+        <div className="container mx-auto">
+          <Fancybox options={{ Carousel: { infinite: false } }}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+              {project.gallery.map((imagePath, index) => {
+                const total = project.gallery.length;
+                const isOdd = total % 2 !== 0;
+                const isLastThree = isOdd && total > 3 && index >= total - 3;
+
+                let columnSpan = isLastThree 
+                  ? "md:col-span-4" 
+                  : (Math.floor(index / 2) % 2 === 0 
+                      ? (index % 2 === 0 ? "md:col-span-7" : "md:col-span-5")
+                      : (index % 2 === 0 ? "md:col-span-5" : "md:col-span-7"));
+
+                return (
+                  <a
+                    key={index}
+                    href={imagePath} // L'image en grand pour Fancybox
+                    data-fancybox="gallery" // Groupe les images pour la navigation
+                    className={`relative block overflow-hidden bg-gray-100 h-[380px] sm:h-[460px] md:h-[516px] cursor-zoom-in ${columnSpan}`}
+                  >
+                    <Image
+                      src={imagePath}
+                      alt={`Galerie ${project.title} - ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </a>
+                );
+              })}
+            </div>
+          </Fancybox>
+        </div>
+      </section>
+      
+      {/* Section mission */}
+      <section className="single-mission py-20 md:py-30 bg-white">
+        <div className="container mx-auto">
+          <div className="flex items-center">
+            
+            <div className="left-mission w-1/1 md:w-1/2 md:pr-10 lg:pr-20">
+              <div className="relative aspect-square w-full overflow-hidden">
+                <Image 
+                  src={"/media/singleproject/single6.jpg"} 
+                  alt="Conception architecturale et plans"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+            
+            <div className="right-mission w-1/1 md:w-1/2 md:pl-10 lg:pl-20">
+              <h2 className="text-[40px] font-extrabold uppercase mb-8 text-black">
+                Ce que nous<br />avons conçu.
+              </h2>
+              
+              <p className="text-black font-light mb-8 text-[16px]">
+                Xalimart Group est intervenu sur l'ensemble du cycle du projet — de la 
+                conception architecturale à la supervision des travaux. Notre approche 
+                pluridisciplinaire a permis d'intégrer architecture, design d'intérieur et 
+                ingénierie dans une vision cohérente et unifiée.
+              </p>
+
+              <div className="space-y-4 text-[16px]">
+                <h3 className="font-semibold text-black text-[16px]">Missions réalisées</h3>
+                
+                <ul className="space-y-3">
+                  {[
+                    "Conception architecturale",
+                    "Design d'intérieur",
+                    "Études techniques",
+                    "Supervision des travaux",
+                    "Gestion de projet"
+                  ].map((mission, index) => (
+                    <li key={index} className="flex items-start gap-3 font-light">
+                      <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-black shrink-0" />
+                      {mission}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 5. SECTION VIDÉO / LARGE VIEW */}
-      <section className="relative w-full h-[60vh] flex items-center justify-center">
-        <Image src="/media/portfolio1.jpg" fill alt="video" className="object-cover brightness-75"/>
-        <button className="relative z-10 w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:scale-110 transition-transform">
-          <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-        </button>
-      </section>
+      {/* Single Vidéo */}
+      <VideoSection />
 
-      {/* 6. D'AUTRES RÉALISATIONS (RECOMMANDATIONS) */}
-      <section className="py-24 bg-black">
-        <div className="container mx-auto px-6">
-          <h2 className="text-[14px] uppercase tracking-[0.4em] text-center mb-16 font-bold">D'autres réalisations.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+      {/* Single others projects */}
+      <section className="single-others-projects py-20 md:py-30 bg-black">
+        <div className="container mx-auto">
+          <h2 className="text-[36px] uppercase text-center mb-16 font-extrabold text-white">D'autres réalisations.</h2>
+          <div className="flex flex-wrap justify-between -mx-3">
           
-            <div className="md:col-span-2 group relative overflow-hidden aspect-[4/5] cursor-pointer">
-              <img src="/media/projet3.jpg" alt="Musée" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Institutionnel • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Musée des Forces Armées</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+            <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
+              <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <div className="project-image">
+                  <img src="/media/singleproject/single8.jpg" alt="Musée" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+                <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Institutionnel • 2023</span>
+                  <h3 className="text-[20px] font-bold mb-1">Musée des Forces Armées</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-[1px] bg-white"></span>
+                    <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="md:col-span-2 group relative overflow-hidden aspect-[4/5] cursor-pointer">
-              <img src="/media/projet4.jpg" alt="Bureaux CDC" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Bureau • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Bureaux CDC</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+            <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
+              <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <div className="project-image">
+                  <img src="/media/singleproject/single9.jpg" alt="Bureaux CDC" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+                <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Bureau • 2023</span>
+                  <h3 className="text-[20px] font-bold mb-1">Bureaux CDC</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-[1px] bg-white"></span>
+                    <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="md:col-span-2 group relative overflow-hidden aspect-[4/5] cursor-pointer">
-              <img src="/media/projet5.jpg" alt="Siège Lonase" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Hôtel • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Siège Lonase</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+            <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
+              <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <div className="project-image">
+                  <img src="/media/singleproject/single10.jpg" alt="Siège Lonase" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+                <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Hôtel • 2023</span>
+                  <h3 className="text-[20px] font-bold mb-1">Siège Lonase</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-[1px] bg-white"></span>
+                    <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
+                  </div>
                 </div>
               </div>
             </div>
