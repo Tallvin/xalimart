@@ -14,7 +14,7 @@ export default function AboutUsSection() {
           </div>
 
           {/* Titre principal */}
-          <h2 className="text-black text-4xl md:text-[40px] font-extrabold uppercase leading-tight">
+          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
             Batir l'afrique de <br /> demain
           </h2>
 

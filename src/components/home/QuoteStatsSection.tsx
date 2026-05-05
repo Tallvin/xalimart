@@ -8,7 +8,7 @@ export default function QuoteStatsSection() {
         
         {/* --- PARTIE GAUCHE (Inchangée) --- */}
         <div className="w-full lg:w-2/3 flex flex-col gap-12">
-          <h2 className="text-3xl md:text-[32px] lg:text-[36px] font-bold leading-tight max-w-[720px]">
+          <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold leading-tight max-w-[720px]">
             “ Nous ne construisons pas des bâtiments. Nous façonnons des expériences, des héritages. ”
           </h2>
 

@@ -6,7 +6,7 @@ export default function FeaturedProjectsSection() {
         
         {/* --- EN-TÊTE : TITRE ET DESCRIPTION --- */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
-          <h2 className="text-4xl md:text-[40px] font-extrabold uppercase leading-tight">
+          <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
             Nos projets <br /> récents
           </h2>
           <p className="max-w-xl text-white text-[16px] md:text-base leading-relaxed font-light">

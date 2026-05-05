@@ -21,7 +21,7 @@ export default function ScrollTexte() {
   );
 
   return (
-    <section className="scroll-container">
+    <section id="scrolltext" className="scroll-container">
       {/* Conteneur pour l'animation marquee */}
         <div className="scroll-content">
           <ListContent />

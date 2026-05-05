@@ -56,7 +56,7 @@ export default function AboutTeam() {
               <span className="w-8 h-[1px] bg-white/50"></span>
               <span className="text-white/50 tracking-widest text-[16px] font-normal ">L'équipe</span>
             </div>
-            <h2 className="text-white text-4xl md:text-[36px] font-[700] uppercase leading-[1.1] tracking-tighter">
+            <h2 className="text-white text-[30px] md:text-[32px] lg:text-[36px] font-[700] uppercase leading-[1.1] tracking-tighter">
               Des experts. <br />
               Une même exigence.
             </h2>

@@ -2,7 +2,7 @@
 
 export default function AboutUs() {
     return (
-        <section id="about-us" className="bg-white py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+        <section className="bg-white py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
             <div className="container mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                 
                 {/* --- PARTIE GAUCHE : COMPOSITION D'IMAGES ASYMÉTRIQUE --- */}
@@ -39,7 +39,7 @@ export default function AboutUs() {
                 </div>
 
                 {/* Titre principal en ExtraBold */}
-                <h2 className="text-3xl md:text-4xl lg:text-[36px] font-[700] text-black uppercase leading-tight tracking-tight">
+                <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-[700] text-black uppercase leading-tight tracking-tight">
                     Nés à Dakar. <br />
                     Bâti pour le monde.
                 </h2>

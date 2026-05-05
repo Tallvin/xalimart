@@ -12,7 +12,7 @@ export default function ServicesSection() {
               <span className="w-10 h-[1px] bg-gray-500"></span>
               <span className="text-gray-600 tracking-widest text-[16px] font-normal">Services</span>
             </div>
-            <h2 className="text-4xl md:text-[40px] font-extrabold uppercase leading-[1.1] max-w-md">
+            <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-[1.1] max-w-md">
               Ce que nous <br /> concevons.
             </h2>
           </div>

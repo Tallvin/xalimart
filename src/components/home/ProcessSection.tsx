@@ -6,7 +6,7 @@ export default function ProcessSection() {
         
         {/* --- TITRE DE LA SECTION --- */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-[40px] font-extrabold uppercase tracking-tight leading-tight">
+          <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase tracking-tight leading-tight">
             De la vision à <br /> la réalité .
           </h2>
         </div>

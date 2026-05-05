@@ -12,11 +12,11 @@ export default function Footer() {
               <span className="text-white/50 tracking-widest text-[16px]">Contact</span>
             </div>
             
-            <h2 className="footer-contact-title text-4xl md:text-[40px] font-extrabold uppercase leading-tight">
+            <h2 className="footer-contact-title text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
               Parlons de <br /> votre projet.
             </h2>
 
-            <h2 className="footer-contact-title contact-title text-black text-4xl md:text-[40px] font-extrabold uppercase leading-tight hidden">
+            <h2 className="footer-contact-title contact-title text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight hidden">
               Votre vision mérite <br /> d'être entendue.
             </h2>
 
@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* --- PARTIE DROITE : FORMULAIRE --- */}
           <div className="w-full lg:w-1/2">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+            <form className="contact-form grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
               
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Nom Prénom</label>
@@ -102,7 +102,7 @@ export default function Footer() {
               {/* Type de projet (Checkboxes) */}
               <div className="md:col-span-2 flex flex-col gap-6">
                 <label className="text-xs text-white font-light text-[14px]">Type de projet</label>
-                <div className="flex flex-wrap gap-6">
+                <div className="checkboxes flex flex-wrap gap-6">
                   {['RESIDENTIEL', 'COMMERCIAL', 'INSTITUTIONNEL', 'INTÉRIEUR'].map((type) => (
                     <label key={type} className="flex items-center gap-3 cursor-pointer group">
                       <input type="checkbox" className="w-4 h-4 border-white bg-transparent rounded-none checked:bg-white" />
@@ -118,7 +118,7 @@ export default function Footer() {
               </div>
 
               <div className="md:col-span-2 mt-8">
-                <button type="submit" className="bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
+                <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
                   Envoyer un message
                 </button>
               </div>
