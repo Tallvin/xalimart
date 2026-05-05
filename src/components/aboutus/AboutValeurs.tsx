@@ -110,6 +110,6 @@ export default function AboutValeurs() {
 
                 </div>
             </div>
-            </section>
+        </section>
     )
 }

@@ -39,6 +39,7 @@ export default function PortfolioFilters() {
           <option>2025</option>
           <option>2024</option>
           <option>2023</option>
+          <option>2022</option>
         </select>
       </div>
     </div>
