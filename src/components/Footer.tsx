@@ -1,10 +1,54 @@
-// src/components/Footer.tsx
+'use client'
+
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE_ID = 'service_k7jwnna'
+const EMAILJS_TEMPLATE_ID = 'template_nunykrf'
+const EMAILJS_PUBLIC_KEY = '5wqxJMVK3ew4nYpbS'
+
 export default function Footer() {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([])
+
+  const toggleType = (type: string) => {
+    setSelectedTypes(prev =>
+      prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
+    )
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formRef.current) return
+
+    setStatus('sending')
+
+    const formData = new FormData(formRef.current)
+    const templateParams = {
+      from_name: formData.get('from_name'),
+      company: formData.get('company'),
+      from_email: formData.get('from_email'),
+      phone: formData.get('phone'),
+      project_type: selectedTypes.join(', ') || 'Non précisé',
+      message: formData.get('message'),
+    }
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+      setStatus('success')
+      formRef.current.reset()
+      setSelectedTypes([])
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <footer className="main-Footer">
       <section className="footer-contact footer-section py-24">
         <div className="container mx-auto flex flex-col lg:flex-row gap-20">
-          
+
           {/* --- PARTIE GAUCHE : INFOS DE CONTACT --- */}
           <div className="w-full lg:w-1/2 flex flex-col gap-10">
             <div className="sup-title flex items-center gap-4">
@@ -51,7 +95,7 @@ export default function Footer() {
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M17.657 5.30377C14.533 2.23077 9.46802 2.23077 6.34402 5.30377C5.6023 6.02841 5.01293 6.894 4.61053 7.84968C4.20814 8.80536 4.00085 9.83184 4.00085 10.8688C4.00085 11.9057 4.20814 12.9322 4.61053 13.8879C5.01293 14.8435 5.6023 15.7091 6.34402 16.4338L12 21.9988L17.657 16.4338C18.3987 15.7091 18.9881 14.8435 19.3905 13.8879C19.7929 12.9322 20.0002 11.9057 20.0002 10.8688C20.0002 9.83184 19.7929 8.80536 19.3905 7.84968C18.9881 6.894 18.3987 6.02841 17.657 5.30377ZM12 13.4988C11.332 13.4988 10.705 13.2388 10.232 12.7668C9.76377 12.2975 9.50079 11.6617 9.50079 10.9988C9.50079 10.3359 9.76377 9.70002 10.232 9.23077C10.704 8.75877 11.332 8.49877 12 8.49877C12.668 8.49877 13.296 8.75877 13.768 9.23077C14.2363 9.70002 14.4992 10.3359 14.4992 10.9988C14.4992 11.6617 14.2363 12.2975 13.768 12.7668C13.296 13.2388 12.668 13.4988 12 13.4988Z" fill="black"/>
+                    <path d="M17.657 5.30377C14.533 2.23077 9.46802 2.23077 6.34402 5.30377C5.6023 6.02841 5.01293 6.894 4.61053 7.84968C4.20814 8.80536 4.00085 9.83184 4.00085 10.8688C4.00085 11.9057 4.20814 12.9322 4.61053 13.8879C5.01293 14.8435 5.6023 15.7091 6.34402 16.4338L12 21.9988L17.657 16.4338C18.3987 15.7091 18.9881 14.8435 19.3905 13.8879C19.7929 12.9322 20.0002 11.9057 20.0002 10.8688C20.0002 9.83184 19.7929 8.80536 19.3905 7.84968C18.3987 6.894 18.3987 6.02841 17.657 5.30377ZM12 13.4988C11.332 13.4988 10.705 13.2388 10.232 12.7668C9.76377 12.2975 9.50079 11.6617 9.50079 10.9988C9.50079 10.3359 9.76377 9.70002 10.232 9.23077C10.704 8.75877 11.332 8.49877 12 8.49877C12.668 8.49877 13.296 8.75877 13.768 9.23077C14.2363 9.70002 14.4992 10.3359 14.4992 10.9988C14.4992 11.6617 14.2363 12.2975 13.768 12.7668C13.296 13.2388 12.668 13.4988 12 13.4988Z" fill="black"/>
                   </svg>
                 </div>
                 <div>
@@ -81,22 +125,22 @@ export default function Footer() {
               
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Nom Prénom</label>
-                <input type="text" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
+                <input name="from_name" type="text" required className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Company</label>
-                <input type="text" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
+                <input name="company" type="text" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Email</label>
-                <input type="email" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
+                <input name="from_email" type="email" required className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Téléphone</label>
-                <input type="tel" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
+                <input name="phone" type="tel" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
               </div>
 
               {/* Type de projet (Checkboxes) */}
@@ -105,7 +149,12 @@ export default function Footer() {
                 <div className="checkboxes flex flex-wrap gap-6">
                   {['RESIDENTIEL', 'COMMERCIAL', 'INSTITUTIONNEL', 'INTÉRIEUR'].map((type) => (
                     <label key={type} className="flex items-center gap-3 cursor-pointer group">
-                      <input type="checkbox" className="w-4 h-4 border-white bg-transparent rounded-none checked:bg-white" />
+                      <input
+                        type="checkbox"
+                        checked={selectedTypes.includes(type)}
+                        onChange={() => toggleType(type)}
+                        className="w-4 h-4 border-white bg-transparent rounded-none checked:bg-white"
+                      />
                       <span className="text-[10px] md:text-xs tracking-widest group-hover:text-white transition-colors text-white font-light text-[12px]">{type}</span>
                     </label>
                   ))}
@@ -114,13 +163,20 @@ export default function Footer() {
 
               <div className="md:col-span-2 flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Partagez les détails de votre vision</label>
-                <textarea rows={1} className="bg-transparent border-b border-white py-2 outline-none focus:border-white transition-colors resize-none"></textarea>
+                <textarea name="message" rows={1} className="bg-transparent border-b border-white py-2 outline-none focus:border-white transition-colors resize-none"></textarea>
               </div>
 
               <div className="md:col-span-2 mt-8">
                 <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
                   Envoyer un message
                 </button>
+
+                {status === 'success' && (
+                  <p className="text-white text-sm font-light">Message envoyé avec succès !</p>
+                )}
+                {status === 'error' && (
+                  <p className="text-red-400 text-sm font-light">Une erreur est survenue. Réessayez.</p>
+                )}
               </div>
 
             </form>
@@ -128,7 +184,7 @@ export default function Footer() {
 
         </div>
       </section>
-      
+
       <section className="contact-maps pb-24 hidden">
         <div className="container mx-auto">
           <img src="/media/map.jpg" alt="Xalimart Group" className="w-full object-contain" />
@@ -137,10 +193,10 @@ export default function Footer() {
 
       <section className="footer-bottom footer-section bg-black text-white pt-20 pb-10 border-t border-white-400">
         <div className="container mx-auto">
-          
+
           {/* --- PARTIE SUPÉRIEURE : LOGO ET NAVIGATION --- */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-20">
-            
+
             {/* Colonne 1 : Logo et Réseaux Sociaux */}
             <div className="flex flex-col gap-10">
               <div className="w-48">
@@ -195,7 +251,7 @@ export default function Footer() {
             <p className="text-white font-extralight text-[12px] tracking-wide">
               Xalimart Group © 2026. All Rights Reserved.
             </p>
-            
+
             <div className="flex gap-8 text-white font-extralight text-[12px] tracking-wide">
               <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
               <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
