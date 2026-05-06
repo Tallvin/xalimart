@@ -28,6 +28,7 @@ export default function VideoSection() {
         loop
         muted
         playsInline
+        preload="auto"
       >
         <source src="/media/hero.webm" type="video/webm" />
         <source src="/media/hero.mp4" type="video/mp4" />
