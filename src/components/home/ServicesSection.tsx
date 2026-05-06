@@ -1,7 +1,7 @@
 // src/components/ServicesSection.tsx
 export default function ServicesSection() {
   return (
-    <section className="services-section home-section bg-[rgba(198, 198, 198, 1)] py-24 text-black">
+    <section id="services-section" className="services-section home-section bg-[rgba(198, 198, 198, 1)] py-24 text-black">
       <div className="container mx-auto">
         
         {/* --- HEADER DE LA SECTION --- */}
@@ -9,8 +9,8 @@ export default function ServicesSection() {
           <div className="flex flex-col gap-6">
             {/* Label avec ligne */}
             <div className="flex items-center gap-4">
-              <span className="w-10 h-[1px] bg-[rgba(124, 124, 124, 1)]"></span>
-              <span className="text-[rgba(124, 124, 124, 1)] tracking-widest text-[16px] font-normal">Services</span>
+              <span className="w-10 h-[1px] bg-[#7C7C7C]"></span>
+              <span className="text-[#7C7C7C] text-[16px] font-normal">Services</span>
             </div>
             <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase max-w-md">
               Ce que nous <br /> concevons.
@@ -23,10 +23,10 @@ export default function ServicesSection() {
         </div>
 
         {/* --- GRILLE DES SERVICES --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="list-services flex flex-wrap -ml-[25px] -mr-[25px]">
           
           {/* SERVICE 1: Architecture */}
-          <div className="group flex flex-col gap-2 xs:pl-0 p-8 border-l border-black/20 lg:first:border-l-0">
+          <div className="w-1/1 md:w-1/2 lg:w-1/4 group flex flex-col gap-2 xs:pl-0 p-[25px] border-l border-black/20 lg:first:border-l-0">
             <div className="w-10 h-10">
               <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.5 35.8437C18.3985 35.8437 18.2988 35.817 18.2109 35.7663L3.17969 27.0944C3.0918 27.0436 3.01882 26.9707 2.96808 26.8828C2.91734 26.7949 2.89063 26.6952 2.89063 26.5937V9.8281C2.89058 9.72365 2.91882 9.62114 2.97237 9.53146C3.02591 9.44178 3.10275 9.36828 3.19472 9.31877L18.226 1.22502C18.3103 1.18003 18.4044 1.15649 18.5 1.15649C18.5956 1.15649 18.6897 1.18003 18.774 1.22502L33.8053 9.31877C33.8972 9.36828 33.9741 9.44178 34.0276 9.53146C34.0812 9.62114 34.1094 9.72365 34.1094 9.8281V26.5937C34.1094 26.6952 34.0827 26.7949 34.0319 26.8828C33.9812 26.9707 33.9082 27.0436 33.8203 27.0944L18.7891 35.7663C18.7012 35.817 18.6015 35.8437 18.5 35.8437ZM4.04688 26.2601L18.5 34.5984L32.9531 26.2601V10.175L18.5 2.3911L4.04688 10.175V26.2601Z" fill="black"/>
@@ -35,10 +35,10 @@ export default function ServicesSection() {
               </svg>
             </div>
             <h3 className="text-[18px] font-semibold">Architecture</h3>
-            <p className="text-black text-[14px] font-light leading-relaxed flex-grow">
+            <div className="text-black text-[14px] font-light leading-relaxed flex-grow">
               Conception architecturale de bâtiments résidentiels, commerciaux et institutionnels avec une vision durable et innovante.
-            </p>
-            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-pointer">
+            </div>
+            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-default">
               Explorer 
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path fillRule="evenodd" clipRule="evenodd" d="M13.47 5.47007C13.6106 5.32962 13.8012 5.25073 14 5.25073C14.1988 5.25073 14.3894 5.32962 14.53 5.47007L20.53 11.4701C20.6705 11.6107 20.7493 11.8013 20.7493 12.0001C20.7493 12.1988 20.6705 12.3894 20.53 12.5301L14.53 18.5301C14.4613 18.6038 14.3785 18.6629 14.2865 18.7039C14.1945 18.7448 14.0952 18.7669 13.9945 18.7687C13.8938 18.7704 13.7938 18.7519 13.7004 18.7142C13.607 18.6765 13.5222 18.6203 13.451 18.5491C13.3797 18.4779 13.3236 18.3931 13.2859 18.2997C13.2482 18.2063 13.2296 18.1063 13.2314 18.0056C13.2332 17.9048 13.2552 17.8055 13.2962 17.7135C13.3372 17.6215 13.3963 17.5387 13.47 17.4701L18.19 12.7501H4C3.80109 12.7501 3.61032 12.6711 3.46967 12.5304C3.32902 12.3898 3.25 12.199 3.25 12.0001C3.25 11.8012 3.32902 11.6104 3.46967 11.4697C3.61032 11.3291 3.80109 11.2501 4 11.2501H18.19L13.47 6.53007C13.3295 6.38945 13.2507 6.19882 13.2507 6.00007C13.2507 5.80132 13.3295 5.6107 13.47 5.47007Z" fill="black"/>
@@ -47,17 +47,17 @@ export default function ServicesSection() {
           </div>
 
           {/* SERVICE 2: Design d'Intérieur */}
-          <div className="group flex flex-col gap-2 p-8 border-l border-black/20">
+          <div className="w-1/1 md:w-1/2 lg:w-1/4 group flex flex-col gap-2 p-8 border-l border-black/20">
             <div className="w-10 h-10">
               <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.8006 2.84206L31.5194 13.1789C31.7868 13.3959 32.0023 13.6697 32.1504 13.9806C32.2984 14.2915 32.3751 14.6314 32.375 14.9757V32.375C32.375 32.9883 32.1314 33.5765 31.6977 34.0102C31.264 34.4439 30.6758 34.6875 30.0625 34.6875H4.625C4.01169 34.6875 3.42349 34.4439 2.98982 34.0102C2.55614 33.5765 2.3125 32.9883 2.3125 32.375V14.9757C2.3127 14.6318 2.38962 14.2923 2.53763 13.9819C2.68565 13.6714 2.90104 13.3979 3.16813 13.1812L15.8869 2.84206C16.2989 2.50784 16.8132 2.32544 17.3438 2.32544C17.8743 2.32544 18.3886 2.50784 18.8006 2.84206ZM30.0625 14.9757L17.3438 4.63656L4.625 14.9734V32.375H30.0625V14.9757Z" fill="black"/>
               </svg>
             </div>
             <h3 className="text-[18px] font-semibold">Design d'Intérieur</h3>
-            <p className="text-black text-[14px] font-light leading-relaxed flex-grow">
+            <div className="text-black text-[14px] font-light leading-relaxed flex-grow">
               Création d'espaces intérieurs qui marient esthétique contemporaine, fonctionnalité et identité culturelle africaine.
-            </p>
-            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-pointer">
+            </div>
+            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-default">
               Explorer 
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path fillRule="evenodd" clipRule="evenodd" d="M13.47 5.47007C13.6106 5.32962 13.8012 5.25073 14 5.25073C14.1988 5.25073 14.3894 5.32962 14.53 5.47007L20.53 11.4701C20.6705 11.6107 20.7493 11.8013 20.7493 12.0001C20.7493 12.1988 20.6705 12.3894 20.53 12.5301L14.53 18.5301C14.4613 18.6038 14.3785 18.6629 14.2865 18.7039C14.1945 18.7448 14.0952 18.7669 13.9945 18.7687C13.8938 18.7704 13.7938 18.7519 13.7004 18.7142C13.607 18.6765 13.5222 18.6203 13.451 18.5491C13.3797 18.4779 13.3236 18.3931 13.2859 18.2997C13.2482 18.2063 13.2296 18.1063 13.2314 18.0056C13.2332 17.9048 13.2552 17.8055 13.2962 17.7135C13.3372 17.6215 13.3963 17.5387 13.47 17.4701L18.19 12.7501H4C3.80109 12.7501 3.61032 12.6711 3.46967 12.5304C3.32902 12.3898 3.25 12.199 3.25 12.0001C3.25 11.8012 3.32902 11.6104 3.46967 11.4697C3.61032 11.3291 3.80109 11.2501 4 11.2501H18.19L13.47 6.53007C13.3295 6.38945 13.2507 6.19882 13.2507 6.00007C13.2507 5.80132 13.3295 5.6107 13.47 5.47007Z" fill="black"/>
@@ -66,7 +66,7 @@ export default function ServicesSection() {
           </div>
 
           {/* SERVICE 3: Immobilier */}
-          <div className="group flex flex-col gap-2 p-8 border-l border-black/20">
+          <div className="w-1/1 md:w-1/2 lg:w-1/4 group flex flex-col gap-2 p-8 border-l border-black/20">
             <div className="w-10 h-10">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_712_1633)">
@@ -80,10 +80,10 @@ export default function ServicesSection() {
               </svg>
             </div>
             <h3 className="text-[18px] font-semibold">Immobilier</h3>
-            <p className="text-black text-[14px] font-light leading-relaxed flex-grow">
+            <div className="text-black text-[14px] font-light leading-relaxed flex-grow">
               Accompagnement dans l'acquisition, la valorisation et la gestion de biens immobiliers résidentiels et commerciaux.
-            </p>
-            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-pointer">
+            </div>
+            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-default">
               Explorer 
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path fillRule="evenodd" clipRule="evenodd" d="M13.47 5.47007C13.6106 5.32962 13.8012 5.25073 14 5.25073C14.1988 5.25073 14.3894 5.32962 14.53 5.47007L20.53 11.4701C20.6705 11.6107 20.7493 11.8013 20.7493 12.0001C20.7493 12.1988 20.6705 12.3894 20.53 12.5301L14.53 18.5301C14.4613 18.6038 14.3785 18.6629 14.2865 18.7039C14.1945 18.7448 14.0952 18.7669 13.9945 18.7687C13.8938 18.7704 13.7938 18.7519 13.7004 18.7142C13.607 18.6765 13.5222 18.6203 13.451 18.5491C13.3797 18.4779 13.3236 18.3931 13.2859 18.2997C13.2482 18.2063 13.2296 18.1063 13.2314 18.0056C13.2332 17.9048 13.2552 17.8055 13.2962 17.7135C13.3372 17.6215 13.3963 17.5387 13.47 17.4701L18.19 12.7501H4C3.80109 12.7501 3.61032 12.6711 3.46967 12.5304C3.32902 12.3898 3.25 12.199 3.25 12.0001C3.25 11.8012 3.32902 11.6104 3.46967 11.4697C3.61032 11.3291 3.80109 11.2501 4 11.2501H18.19L13.47 6.53007C13.3295 6.38945 13.2507 6.19882 13.2507 6.00007C13.2507 5.80132 13.3295 5.6107 13.47 5.47007Z" fill="black"/>
@@ -92,7 +92,7 @@ export default function ServicesSection() {
           </div>
 
           {/* SERVICE 4: Urbanisme */}
-          <div className="group flex flex-col gap-2 p-8 border-l border-black/20">
+          <div className="w-1/1 md:w-1/2 lg:w-1/4 group flex flex-col gap-2 p-8 border-l border-black/20">
             <div className="w-10 h-10">
               <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M0 10.0209V34.6876C0 35.241 0.565831 35.6141 1.07448 35.3961L11.8661 30.7711C12.1496 30.6496 12.3333 30.371 12.3333 30.0626V5.39593C12.3333 4.84254 11.7675 4.46943 11.2589 4.68742L0.467187 9.31242C0.183764 9.43389 0 9.71258 0 10.0209ZM10.7917 6.56771V29.5384L1.54167 33.5213V10.5212L10.7917 6.56771Z" fill="black"/>
@@ -102,10 +102,10 @@ export default function ServicesSection() {
               </svg>
             </div>
             <h3 className="text-[18px] font-semibold">Urbanisme</h3>
-            <p className="text-black text-[14px] font-light leading-relaxed flex-grow">
+            <div className="text-black text-[14px] font-light leading-relaxed flex-grow">
               Planification et conception de quartiers, zones d'activités et espaces publics à l'échelle de la ville.
-            </p>
-            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-pointer">
+            </div>
+            <button className="mt-4 text-[16px] font-medium inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300 font-medium cursor-default">
               Explorer 
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path fillRule="evenodd" clipRule="evenodd" d="M13.47 5.47007C13.6106 5.32962 13.8012 5.25073 14 5.25073C14.1988 5.25073 14.3894 5.32962 14.53 5.47007L20.53 11.4701C20.6705 11.6107 20.7493 11.8013 20.7493 12.0001C20.7493 12.1988 20.6705 12.3894 20.53 12.5301L14.53 18.5301C14.4613 18.6038 14.3785 18.6629 14.2865 18.7039C14.1945 18.7448 14.0952 18.7669 13.9945 18.7687C13.8938 18.7704 13.7938 18.7519 13.7004 18.7142C13.607 18.6765 13.5222 18.6203 13.451 18.5491C13.3797 18.4779 13.3236 18.3931 13.2859 18.2997C13.2482 18.2063 13.2296 18.1063 13.2314 18.0056C13.2332 17.9048 13.2552 17.8055 13.2962 17.7135C13.3372 17.6215 13.3963 17.5387 13.47 17.4701L18.19 12.7501H4C3.80109 12.7501 3.61032 12.6711 3.46967 12.5304C3.32902 12.3898 3.25 12.199 3.25 12.0001C3.25 11.8012 3.32902 11.6104 3.46967 11.4697C3.61032 11.3291 3.80109 11.2501 4 11.2501H18.19L13.47 6.53007C13.3295 6.38945 13.2507 6.19882 13.2507 6.00007C13.2507 5.80132 13.3295 5.6107 13.47 5.47007Z" fill="black"/>

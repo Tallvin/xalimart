@@ -13,7 +13,7 @@ const staticData = {
   navItems: [
     { label: 'Accueil', link: '/' },
     { label: 'À propos', link: '/about-us' },
-    { label: 'Services', link: '/services' },
+    { label: 'Services', link: '/#services-section' },
     { label: 'Portfolio', link: '/portfolio' },
   ],
 }
@@ -88,37 +88,33 @@ export default function Header({ data = staticData }: { data?: any }) {
             <ul className="flex flex-col md:flex-row items-md-center gap-6 lg:gap-10">
 
               {navItems.map((item: any, index: number) => {
-  // 1. On prépare le lien cible (ex: /fr/about-us)
-  const cleanLink = item.link.startsWith('/') ? item.link : `/${item.link}`
-  const itemLinkWithLang = `/${currentLang}${cleanLink === '/' ? '' : cleanLink}`
+                
+                const cleanLink = item.link.startsWith('/') ? item.link : `/${item.link}`
+                const itemLinkWithLang = `/${currentLang}${cleanLink === '/' ? '' : cleanLink}`
+                
+                const normalize = (p: string) => p.replace(/\/$/, '') || '/'
+                
+                const normalizedPathname = normalize(pathname)
+                const normalizedTarget = normalize(itemLinkWithLang)
+                
+                const isHomeActive = item.link === '/' && (normalizedPathname === `/${currentLang}` || normalizedPathname === '/')
+                
+                const isActive = isHomeActive || normalizedPathname === normalizedTarget
 
-  // 2. NORMALISATION pour la comparaison
-  // On enlève les slashs de fin pour que "/fr" soit égal à "/fr/"
-  const normalize = (p: string) => p.replace(/\/$/, '') || '/'
-  
-  const normalizedPathname = normalize(pathname)
-  const normalizedTarget = normalize(itemLinkWithLang)
-
-  // 3. LOGIQUE ACTIVE
-  // Cas spécial pour la home : si le pathname est juste /fr ou /en
-  const isHomeActive = item.link === '/' && (normalizedPathname === `/${currentLang}` || normalizedPathname === '/')
-  
-  const isActive = isHomeActive || normalizedPathname === normalizedTarget
-
-  return (
-    <li key={index}>
-      <Link 
-        href={itemLinkWithLang}
-        className={`text-[16px] transition-all hover:opacity-100 
-          ${isActive ? 'opacity-100 font-bold' : 'opacity-60 font-normal'}
-          ${shouldShowWhiteBg ? 'md:text-black' : 'md:text-white'}
-        `}
-      >
-        {item.label}
-      </Link>
-    </li>
-  )
-})}
+                return (
+                  <li key={index}>
+                    <Link 
+                      href={itemLinkWithLang}
+                      className={`text-[16px] transition-all hover:opacity-100 
+                        ${isActive ? 'opacity-100 font-bold' : 'opacity-60 font-normal'}
+                        ${shouldShowWhiteBg ? 'md:text-black' : 'md:text-white'}
+                      `}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
 
