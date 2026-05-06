@@ -9,9 +9,11 @@ export default function HeroSection() {
         loop 
         muted 
         playsInline 
+        preload="auto"
         poster="/media/hero-pc.jpg"
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
+        <source src="/media/hero.webm" type="video/webm" />
         <source src="/media/hero.mp4" type="video/mp4" />
         
       </video>

@@ -2,8 +2,8 @@
 export default function Footer() {
   return (
     <footer className="main-Footer">
-      <section className="footer-contact footer-section py-24">
-        <div className="container mx-auto flex flex-col lg:flex-row gap-20">
+      <section className="footer-contact footer-section py-15 md:py-24">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-15 md:gap-20">
           
           {/* --- PARTIE GAUCHE : INFOS DE CONTACT --- */}
           <div className="w-full lg:w-1/2 flex flex-col gap-10">
@@ -117,7 +117,7 @@ export default function Footer() {
                 <textarea rows={1} className="bg-transparent border-b border-white py-2 outline-none focus:border-white transition-colors resize-none"></textarea>
               </div>
 
-              <div className="md:col-span-2 mt-8">
+              <div className="md:col-span-2 mt-0 md:mt-8">
                 <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
                   Envoyer un message
                 </button>
@@ -129,20 +129,20 @@ export default function Footer() {
         </div>
       </section>
       
-      <section className="contact-maps pb-24 hidden">
+      <section className="contact-maps pb-15 md:pb-24 hidden">
         <div className="container mx-auto">
           <img src="/media/map.jpg" alt="Xalimart Group" className="w-full object-contain" />
         </div>
       </section>
 
-      <section className="footer-bottom footer-section bg-black text-white pt-20 pb-10 border-t border-white-400">
+      <section className="footer-bottom footer-section bg-black text-white pt-10 md:pt-20 pb-10 border-t border-white-400">
         <div className="container mx-auto">
           
           {/* --- PARTIE SUPÉRIEURE : LOGO ET NAVIGATION --- */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-10 md:mb-20">
             
             {/* Colonne 1 : Logo et Réseaux Sociaux */}
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-5 md:gap-10">
               <div className="w-48">
                 <img src="/media/logo-footer.png" alt="Xalimart Group" className="w-full object-contain" />
               </div>
@@ -166,7 +166,7 @@ export default function Footer() {
             <div className="hidden lg:block"></div>
 
             {/* Colonne 3 : Navigation */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col  gap-4 md:gap-6">
               <h4 className="text-[18px] font-extrabold uppercase leading-tight">Navigation</h4>
               <ul className="flex flex-col gap-4 text-white-300 text-[12px] font-light">
                 <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
@@ -178,7 +178,7 @@ export default function Footer() {
             </div>
 
             {/* Colonne 4 : Services */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col  gap-4 md:gap-6">
               <h4 className="text-[18px] font-extrabold uppercase leading-tight">Services</h4>
               <ul className="flex flex-col gap-4 text-white font-light text-[12px] font-light">
                 <li><a href="#" className="hover:text-white transition-colors">Architecture</a></li>
@@ -191,7 +191,7 @@ export default function Footer() {
           </div>
 
           {/* --- PARTIE INFÉRIEURE : COPYRIGHT ET LÉGAL --- */}
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="pt-5 md:pt-8 flex flex-col md:flex-row justify-between items-center  gap-4 md:gap-6">
             <p className="text-white font-extralight text-[12px] tracking-wide">
               Xalimart Group © 2026. All Rights Reserved.
             </p>

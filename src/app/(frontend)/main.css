@@ -132,6 +132,10 @@ form .checkboxes label input:checked + span:after{
   background-color: #000;
   color: #fff;
 }
+/* Portfolio image*/
+.project-image img{
+  position: initial !important;
+}
 @media (max-width: 767px) {
 	header .nav-site.overflow-hidden {
 	left: -100%;
