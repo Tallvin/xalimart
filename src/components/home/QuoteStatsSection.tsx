@@ -3,12 +3,12 @@
 import CounterNumber from '@/components/CounterNumber'
 export default function QuoteStatsSection() {
   return (
-    <section className="quote-stats-section home-section bg-black text-white py-24 px-6 md:px-12 lg:px-24">
+    <section className="quote-stats-section home-section bg-black text-white py-24">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
         
         {/* --- PARTIE GAUCHE (Inchangée) --- */}
         <div className="w-full lg:w-2/3 flex flex-col gap-12">
-          <h2 className="text-3xl md:text-[32px] lg:text-[36px] font-bold leading-tight max-w-[720px]">
+          <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold max-w-[720px]">
             “ Nous ne construisons pas des bâtiments. Nous façonnons des expériences, des héritages. ”
           </h2>
 
@@ -71,7 +71,7 @@ export default function QuoteStatsSection() {
             <div className="countnumber text-5xl md:text-[65px] font-serif">
               <CounterNumber value={3} />
             </div>
-            <span className="text-white font-light text-[16px] leading-snug">
+            <span className="text-white font-light text-[16px]">
               pôles d'excellence
             </span>
           </div>

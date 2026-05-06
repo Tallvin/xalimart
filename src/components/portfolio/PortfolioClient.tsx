@@ -8,27 +8,47 @@ const PROJECTS = [
   {
     id: 1,
     title: 'VIRTUOSE',
-    category: 'Bureaux',
+    category: 'Bureaux, Hôtellerie',
     year: '2025',
-    slug: 'virtuose',
-    specs: ['13 500 m²', 'BUREAUX', 'DAKAR, SÉNÉGAL'],
-    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau plateau.',
+    slug: 'detail-projet',
+    specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
     image: '/media/portfolio1.jpg',
   },
   {
     id: 2,
     title: 'VILLA I.CHRISS',
-    category: 'Résidentiel',
+    category: 'Résidentiel, Commercial',
     year: '2024',
-    slug: 'villa-i-chriss',
-    specs: ['1 500 m²', 'RÉSIDENTIEL', 'DAKAR, SÉNÉGAL'],
+    slug: 'detail-projet',
+    specs: ['520 2 - Res. Villa R+1, Saly'],
     description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
     image: '/media/portfolio2.jpg',
+  },
+  {
+    id: 3,
+    title: 'Bureau CDC',
+    category: 'Résidentiel, Urbanisme',
+    year: '2022',
+    slug: 'detail-projet',
+    specs: ['447 m² - Bur. SS+RDC+MEZZ+10 étages'],
+    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
+    image: '/media/portfolio3.jpg',
+  },
+  {
+    id: 4,
+    title: 'Muséé des forces armées',
+    category: 'Édifices publics, Bureaux',
+    year: '2023',
+    slug: 'detail-projet',
+    specs: ['623 m² - Type: Edifice Publics - 2023'],
+    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
+    image: '/media/portfolio4.jpg',
   },
 ]
 
 const CATEGORIES = ['Tous', 'Résidentiel', 'Commercial', 'Hôtellerie', 'Bureaux', 'Édifices publics', 'Urbanisme']
-const YEARS = ['Tous', '2026', '2025', '2024', '2023']
+const YEARS = ['Tous', '2026', '2025', '2024', '2023', '2022']
 
 export default function PortfolioClient() {
   const [activeFilter, setActiveFilter] = useState('Tous')
@@ -46,7 +66,7 @@ export default function PortfolioClient() {
       <div className="container mx-auto px-6">
 
         <div className="mb-16">
-          <h1 className="text-[40px] md:text-[45px] font-bold uppercase mb-4 text-black">
+          <h1 className="text-[35px] md:text-[40px] lg:text-[45px] font-bold uppercase mb-4 text-black">
             Chaque projet.<br />Une signature.
           </h1>
           <div className="text-[16px] text-black/50 font-light max-w-xl">
@@ -120,7 +140,11 @@ export default function PortfolioClient() {
 
               <div className="project-infos py-10 flex items-center flex-wrap md:w-1/2 lg:pl-20">
                 <div className="box-title">
-                  <h3 className="text-[32px] font-bold uppercase mb-4">{project.title}</h3>
+                  <h3 className="text-[32px] font-bold uppercase mb-0">
+                    <Link href={`/fr/portfolio/${project.slug}`}>
+                      {project.title}
+                    </Link>
+                  </h3>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.specs.map((spec, i) => (
                       <span key={i} className="text-[16px] text-black/50 font-light px-1 py-1">{spec}</span>
@@ -130,12 +154,12 @@ export default function PortfolioClient() {
                 <div className="text-[16px] text-black font-light mb-8">{project.description}</div>
                 <div className="link">
                   <Link
-                    href={`/portfolio/${project.slug}`}
+                    href={`/fr/portfolio/${project.slug}`}
                     className="inline-flex items-center gap-4 group/btn text-[16px] bg-black/40 text-black font-light px-5 py-3 rounded-[30px] hover:bg-black hover:text-white"
                   >
                     Voir le projet
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-all duration-300 group-hover/btn:rotate-[45deg]">
-                      <path fillRule="evenodd" clipRule="evenodd" d="M6.00022 4.5C5.86761 4.5 5.74044 4.44732 5.64667 4.35355C5.5529 4.25979 5.50022 4.13261 5.50022 4C5.50022 3.86739 5.5529 3.74021 5.64667 3.64645C5.74044 3.55268 5.86761 3.5 6.00022 3.5H12.0002C12.1328 3.5 12.26 3.55268 12.3538 3.64645C12.4475 3.74021 12.5002 3.86739 12.5002 4V10C12.5002 10.1326 12.4475 10.2598 12.3538 10.3536C12.26 10.4473 12.1328 10.5 12.0002 10.5C11.8676 10.5 11.7404 10.4473 11.6467 10.3536C11.5529 10.2598 11.5002 10.1326 11.5002 10V5.20667L4.35356 12.3533C4.25877 12.4417 4.13341 12.4897 4.00387 12.4874C3.87434 12.4852 3.75075 12.4327 3.65914 12.3411C3.56753 12.2495 3.51506 12.1259 3.51277 11.9963C3.51049 11.8668 3.55857 11.7414 3.64689 11.6467L10.7936 4.5H6.00022Z" fill="black"/>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-all duration-300 group-hover/btn:rotate-[45deg] group-hover/btn:fill-white">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.00022 4.5C5.86761 4.5 5.74044 4.44732 5.64667 4.35355C5.5529 4.25979 5.50022 4.13261 5.50022 4C5.50022 3.86739 5.5529 3.74021 5.64667 3.64645C5.74044 3.55268 5.86761 3.5 6.00022 3.5H12.0002C12.1328 3.5 12.26 3.55268 12.3538 3.64645C12.4475 3.74021 12.5002 3.86739 12.5002 4V10C12.5002 10.1326 12.4475 10.2598 12.3538 10.3536C12.26 10.4473 12.1328 10.5 12.0002 10.5C11.8676 10.5 11.7404 10.4473 11.6467 10.3536C11.5529 10.2598 11.5002 10.1326 11.5002 10V5.20667L4.35356 12.3533C4.25877 12.4417 4.13341 12.4897 4.00387 12.4874C3.87434 12.4852 3.75075 12.4327 3.65914 12.3411C3.56753 12.2495 3.51506 12.1259 3.51277 11.9963C3.51049 11.8668 3.55857 11.7414 3.64689 11.6467L10.7936 4.5H6.00022Z" fill="black" className="group-hover/btn:fill-white"/>
                     </svg>
                   </Link>
                 </div>

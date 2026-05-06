@@ -19,13 +19,11 @@ export default function VideoSection() {
   }
 
   return (
-    <section className="video-section home-section relative w-full h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden group bg-black">
+    <section className="video-section home-section relative w-full h-[600px] md:h-[700px] overflow-hidden group">
       
       <video
         ref={videoRef}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          isPlaying ? 'opacity-100' : 'opacity-40'
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover duration-1000`}
         poster="/media/overlay-video.jpg"
         loop
         muted

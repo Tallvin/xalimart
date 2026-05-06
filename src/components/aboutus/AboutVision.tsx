@@ -15,7 +15,7 @@ export default function AboutVision() {
                         <span className="text-white/50 uppercase tracking-widest text-xs font-medium">Notre vision</span>
                         </div>
                         
-                        <h2 className="text-4xl md:text-[36px] font-[800] uppercase leading-[1.1] tracking-tighter max-w-md">
+                        <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-[800] uppercase leading-[1.1] tracking-tighter max-w-md">
                             Transformer <br /> les territoires.
                         </h2>
                     </div>

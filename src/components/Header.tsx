@@ -59,75 +59,77 @@ export default function Header({ data = staticData }: { data?: any }) {
   const burgerColor = shouldShowWhiteBg ? 'text-black' : 'text-white'
 
   const headerStyles = shouldShowWhiteBg
-    ? 'bg-white/95 backdrop-blur-md text-black shadow-sm py-4'
+    ? 'bg-white/95 text-black shadow-sm py-4'
     : 'bg-transparent text-white py-6'
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${headerStyles}`}>
-      <div className="container mx-auto flex justify-between items-center px-6 transition-all duration-500">
-        
-        {/* 1. LOGO - Lien vers la home de la langue actuelle */}
-        <Link href={`/${currentLang}`} className="relative w-32 h-12 transition-transform duration-300">
-          {activeLogo?.url && (
-            <Image 
-              src={activeLogo.url} 
-              alt="Logo" 
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          )}
-        </Link>
-
-        {/* 2. NAVIGATION */}
-        <nav className={`
-          absolute top-full left-0 w-full bg-black/95 lg:bg-transparent lg:static lg:w-auto lg:flex transition-all duration-300
-          ${isOpen ? 'max-h-[500px] opacity-100 py-8 lg:py-0' : 'max-h-0 opacity-0 lg:max-h-none lg:opacity-100 overflow-hidden'}
-        `}>
-          <ul className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
-            {navItems.map((item: any, index: number) => {
-              // On s'assure que le lien inclut la langue : /fr/about-us
-              const itemLink = item.link.startsWith('/') ? `/${currentLang}${item.link}` : `/${currentLang}/${item.link}`
-              const isActive = pathname === itemLink || pathname === item.link
-
-              return (
-                <li key={index}>
-                  <Link 
-                    href={itemLink}
-                    className={`text-[16px] font-[400] transition-all hover:opacity-100 
-                      ${isActive ? 'opacity-100 font-[700]' : 'opacity-60'}
-                      ${shouldShowWhiteBg ? 'lg:text-black' : 'lg:text-white'}
-                    `}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
-
-        {/* 3. ACTIONS */}
-        <div className="flex items-center gap-4 md:gap-8">
-          <Link 
-            href={`/${currentLang}/contact`} 
-            className={`px-6 py-2 text-[16px] font-[500] transition-all rounded-lg border
-              ${shouldShowWhiteBg 
-                ? 'bg-black text-white border-black hover:bg-transparent hover:text-black' 
-                : 'bg-white text-black border-white hover:bg-transparent hover:text-white'}
-            `}
-          >
-            Contact
+		  <div className="container mx-auto">							 
+        <div className="flex justify-between items-center transition-all duration-500">
+          
+          {/* 1. LOGO - Lien vers la home de la langue actuelle */}
+          <Link href={`/${currentLang}`} className="relative w-25 lg:w-32 h-12 transition-transform duration-300">
+            {activeLogo?.url && (
+              <Image 
+                src={activeLogo.url} 
+                alt="Logo" 
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            )}
           </Link>
 
-          <LanguageSwitcher />
+          {/* 2. NAVIGATION */}
+          <nav className={`
+            nav-site absolute top-full left-0 w-full bg-black/95 md:bg-transparent md:static md:w-auto md:flex transition-all duration-300
+            ${isOpen ? 'max-h-[500px] opacity-100 py-8 md:py-0' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100 overflow-hidden'}
+          `}>
+            <ul className="flex flex-col lg:flex-row items-md-center gap-6 lg:gap-10">
+              {navItems.map((item: any, index: number) => {
+                // On s'assure que le lien inclut la langue : /fr/about-us
+                const itemLink = item.link.startsWith('/') ? `/${currentLang}${item.link}` : `/${currentLang}/${item.link}`
+                const isActive = pathname === itemLink || pathname === item.link
 
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden transition-transform active:scale-90 ${burgerColor}`}
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+                return (
+                  <li key={index}>
+                    <Link 
+                      href={itemLink}
+                      className={`text-[16px] font-[400] transition-all hover:opacity-100 
+                        ${isActive ? 'opacity-100 font-[700]' : 'opacity-60'}
+                        ${shouldShowWhiteBg ? 'md:text-black' : 'md:text-white'}
+                      `}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+
+          {/* 3. ACTIONS */}
+          <div className="flex items-center gap-4 md:gap-8">
+            <Link 
+              href={`/${currentLang}/contact`} 
+              className={`px-6 py-2 text-[16px] font-[500] transition-all rounded-lg border
+                ${shouldShowWhiteBg 
+                  ? 'bg-black text-white border-black hover:bg-transparent hover:text-black' 
+                  : 'bg-white text-black border-white hover:bg-transparent hover:text-white'}
+              `}
+            >
+              Contact
+            </Link>
+
+            <LanguageSwitcher />
+
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className={`cursor-pointer md:hidden transition-transform active:scale-90 ${burgerColor}`}
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
     </header>

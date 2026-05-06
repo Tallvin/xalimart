@@ -55,12 +55,12 @@ export default function Footer() {
               <span className="w-8 h-[1px] bg-white/50"></span>
               <span className="text-white/50 tracking-widest text-[16px]">Contact</span>
             </div>
-
-            <h2 className="footer-contact-title text-4xl md:text-[40px] font-extrabold uppercase leading-tight">
+            
+            <h2 className="footer-contact-title text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
               Parlons de <br /> votre projet.
             </h2>
 
-            <h2 className="footer-contact-title contact-title text-black text-4xl md:text-[40px] font-extrabold uppercase leading-tight hidden">
+            <h2 className="footer-contact-title contact-title text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight hidden">
               Votre vision mérite <br /> d'être entendue.
             </h2>
 
@@ -121,8 +121,8 @@ export default function Footer() {
 
           {/* --- PARTIE DROITE : FORMULAIRE --- */}
           <div className="w-full lg:w-1/2">
-            <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-
+            <form className="contact-form grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+              
               <div className="flex flex-col gap-2">
                 <label className="text-xs text-white font-light text-[14px]">Nom Prénom</label>
                 <input name="from_name" type="text" required className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
@@ -146,7 +146,7 @@ export default function Footer() {
               {/* Type de projet (Checkboxes) */}
               <div className="md:col-span-2 flex flex-col gap-6">
                 <label className="text-xs text-white font-light text-[14px]">Type de projet</label>
-                <div className="flex flex-wrap gap-6">
+                <div className="checkboxes flex flex-wrap gap-6">
                   {['RESIDENTIEL', 'COMMERCIAL', 'INSTITUTIONNEL', 'INTÉRIEUR'].map((type) => (
                     <label key={type} className="flex items-center gap-3 cursor-pointer group">
                       <input
@@ -166,13 +166,9 @@ export default function Footer() {
                 <textarea name="message" rows={1} className="bg-transparent border-b border-white py-2 outline-none focus:border-white transition-colors resize-none"></textarea>
               </div>
 
-              <div className="md:col-span-2 mt-8 flex items-center gap-6">
-                <button
-                  type="submit"
-                  disabled={status === 'sending'}
-                  className="bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors disabled:opacity-50"
-                >
-                  {status === 'sending' ? 'Envoi...' : 'Envoyer un message'}
+              <div className="md:col-span-2 mt-8">
+                <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
+                  Envoyer un message
                 </button>
 
                 {status === 'success' && (

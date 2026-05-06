@@ -13,12 +13,12 @@ export default function HeroSection() {
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src="/media/hero.mp4" type="video/mp4" />
-        {/* L'erreur venait du ">" qui était ici en trop */}
+        
       </video>
       <div className="portfolio-link absolute bottom-[64px] left-0 right-0">
         <div className="container mx-auto text-right">
           <Link 
-            href="/portfolio" 
+            href="/fr/portfolio" 
             className="group border-b border-solid border-white uppercase text-white text-[16px] font-light transition-all inline-flex items-center gap-2 pb-1"
           >
             Portfolio

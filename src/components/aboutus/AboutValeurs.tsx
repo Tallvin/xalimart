@@ -2,16 +2,16 @@
 
 export default function AboutValeurs() {
     return (
-        <section className="bg-[#C0C0C0] py-24 px-6 md:px-12 lg:px-24 text-black">
+        <section className="aboutus-nosvaleurs bg-[rgba(198, 198, 198, 1)] py-24 text-black">
             <div className="container mx-auto">
                 
                 {/* --- EN-TÊTE --- */}
                 <div className="flex flex-col items-center text-center mb-20">
                     <div className="flex items-center gap-4 mb-4">
-                        <span className="w-10 h-[1px] bg-gray-500"></span>
-                        <span className="text-gray-600 uppercase tracking-widest text-xs font-medium">Nos valeurs</span>
+                        <span className="w-10 h-[1px] bg-[rgba(124, 124, 124, 1)]"></span>
+                        <span className="text-[rgba(124, 124, 124, 1)] font-normal">Nos valeurs</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-[800] uppercase tracking-tighter">
+                    <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-[800] uppercase">
                         Ce qui nous définit.
                     </h2>
                 </div>
@@ -110,6 +110,6 @@ export default function AboutValeurs() {
 
                 </div>
             </div>
-            </section>
+        </section>
     )
 }
