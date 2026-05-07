@@ -46,14 +46,13 @@ export default function Footer() {
 
   return (
     <footer className="main-Footer">
-      <section className="footer-contact footer-section py-24">
-        <div className="container mx-auto flex flex-col lg:flex-row gap-20">
-
+      <section className="footer-contact footer-section py-15 md:py-24">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-15 md:gap-20">
           {/* --- PARTIE GAUCHE : INFOS DE CONTACT --- */}
           <div className="w-full lg:w-1/2 flex flex-col gap-10">
             <div className="sup-title flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-white/50"></span>
-              <span className="text-white/50 tracking-widest text-[16px]">Contact</span>
+              <span className="w-8 h-[1px] bg-[#7C7C7C]"></span>
+              <span className="text-[#7C7C7C] text-[16px]">Contact</span>
             </div>
             
             <h2 className="footer-contact-title text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
@@ -166,8 +165,8 @@ export default function Footer() {
                 <textarea name="message" rows={1} className="bg-transparent border-b border-white py-2 outline-none focus:border-white transition-colors resize-none"></textarea>
               </div>
 
-              <div className="md:col-span-2 mt-8">
-                <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
+              <div className="md:col-span-2 mt-0 md:mt-8">
+                <button type="submit" className="cursor-pointer bg-white text-black px-10 py-3 rounded-full font-light text-[14px] hover:font-bold transition-colors">
                   Envoyer un message
                 </button>
 
@@ -183,22 +182,21 @@ export default function Footer() {
           </div>
 
         </div>
-      </section>
-
-      <section className="contact-maps pb-24 hidden">
+      </section>    
+      
+      <section className="contact-maps pb-15 md:pb-24 hidden">
         <div className="container mx-auto">
           <img src="/media/map.jpg" alt="Xalimart Group" className="w-full object-contain" />
         </div>
       </section>
 
-      <section className="footer-bottom footer-section bg-black text-white pt-20 pb-10 border-t border-white-400">
+      <section className="footer-bottom footer-section bg-black text-white pt-10 md:pt-20 pb-10 border-t border-white-400">
         <div className="container mx-auto">
 
-          {/* --- PARTIE SUPÉRIEURE : LOGO ET NAVIGATION --- */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-20">
-
+          {/* --- PARTIE SUPÉRIEURE : LOGO ET NAVIGATION --- */}         
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-10 md:mb-20">
             {/* Colonne 1 : Logo et Réseaux Sociaux */}
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-5 md:gap-10">
               <div className="w-48">
                 <img src="/media/logo-footer.png" alt="Xalimart Group" className="w-full object-contain" />
               </div>
@@ -222,37 +220,37 @@ export default function Footer() {
             <div className="hidden lg:block"></div>
 
             {/* Colonne 3 : Navigation */}
-            <div className="flex flex-col gap-6">
-              <h4 className="text-[18px] font-extrabold uppercase leading-tight">Navigation</h4>
-              <ul className="flex flex-col gap-4 text-white-300 text-[12px] font-light">
-                <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">About us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Services</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Projects</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+            <div className="flex flex-col  gap-4 md:gap-6">
+              <h4 className="text-[18px] font-extrabold uppercase">Navigation</h4>
+              <ul className="flex flex-col gap-4 text-white-300 text-[14px] font-light">
+                <li><a href="/fr/" className="text-white hover:font-semibold transition-colors">Home</a></li>
+                <li><a href="/fr/about-us/" className="text-white hover:font-semibold transition-colors">About us</a></li>
+                <li><a href="/fr/#services-section/" className="text-white hover:font-semibold transition-colors">Services</a></li>
+                <li><a href="/fr/portfolio/" className="text-white hover:font-semibold transition-colors">Projects</a></li>
+                <li><a href="/fr/contact" className="text-white hover:font-semibold transition-colors">Contact</a></li>
               </ul>
             </div>
 
             {/* Colonne 4 : Services */}
-            <div className="flex flex-col gap-6">
-              <h4 className="text-[18px] font-extrabold uppercase leading-tight">Services</h4>
-              <ul className="flex flex-col gap-4 text-white font-light text-[12px] font-light">
-                <li><a href="#" className="hover:text-white transition-colors">Architecture</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Design d'intérieur</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Immobilier</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Urbanisme</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Construction</a></li>
+            <div className="flex flex-col  gap-4 md:gap-6">
+              <h4 className="text-[18px] font-extrabold uppercase">Services</h4>
+              <ul className="flex flex-col gap-4 text-white font-light text-[14px] font-light">
+                <li><a href="#" className="hover:text-white transition-colors cursor-default">Architecture</a></li>
+                <li><a href="#" className="hover:text-white transition-colors cursor-default">Design d'intérieur</a></li>
+                <li><a href="#" className="hover:text-white transition-colors cursor-default">Immobilier</a></li>
+                <li><a href="#" className="hover:text-white transition-colors cursor-default">Urbanisme</a></li>
+                <li><a href="#" className="hover:text-white transition-colors cursor-default">Construction</a></li>
               </ul>
             </div>
           </div>
 
           {/* --- PARTIE INFÉRIEURE : COPYRIGHT ET LÉGAL --- */}
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-white font-extralight text-[12px] tracking-wide">
+          <div className="pt-5 md:pt-8 flex flex-col md:flex-row justify-center items-center  gap-4 md:gap-6">
+            <p className="text-white font-extralight text-[12px]">
               Xalimart Group © 2026. All Rights Reserved.
             </p>
 
-            <div className="flex gap-8 text-white font-extralight text-[12px] tracking-wide">
+            <div className="flex gap-8 text-white font-extralight text-[12px] hidden">
               <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
               <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
             </div>

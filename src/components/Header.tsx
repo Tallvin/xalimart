@@ -13,7 +13,7 @@ const staticData = {
   navItems: [
     { label: 'Accueil', link: '/' },
     { label: 'À propos', link: '/about-us' },
-    { label: 'Services', link: '/services' },
+    { label: 'Services', link: '/#services-section' },
     { label: 'Portfolio', link: '/portfolio' },
   ],
 }
@@ -85,18 +85,28 @@ export default function Header({ data = staticData }: { data?: any }) {
             nav-site absolute top-full left-0 w-full bg-black/95 md:bg-transparent md:static md:w-auto md:flex transition-all duration-300
             ${isOpen ? 'max-h-[500px] opacity-100 py-8 md:py-0' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100 overflow-hidden'}
           `}>
-            <ul className="flex flex-col lg:flex-row items-md-center gap-6 lg:gap-10">
+            <ul className="flex flex-col md:flex-row items-md-center gap-6 lg:gap-10">
+
               {navItems.map((item: any, index: number) => {
-                // On s'assure que le lien inclut la langue : /fr/about-us
-                const itemLink = item.link.startsWith('/') ? `/${currentLang}${item.link}` : `/${currentLang}/${item.link}`
-                const isActive = pathname === itemLink || pathname === item.link
+                
+                const cleanLink = item.link.startsWith('/') ? item.link : `/${item.link}`
+                const itemLinkWithLang = `/${currentLang}${cleanLink === '/' ? '' : cleanLink}`
+                
+                const normalize = (p: string) => p.replace(/\/$/, '') || '/'
+                
+                const normalizedPathname = normalize(pathname)
+                const normalizedTarget = normalize(itemLinkWithLang)
+                
+                const isHomeActive = item.link === '/' && (normalizedPathname === `/${currentLang}` || normalizedPathname === '/')
+                
+                const isActive = isHomeActive || normalizedPathname === normalizedTarget
 
                 return (
                   <li key={index}>
                     <Link 
-                      href={itemLink}
-                      className={`text-[16px] font-[400] transition-all hover:opacity-100 
-                        ${isActive ? 'opacity-100 font-[700]' : 'opacity-60'}
+                      href={itemLinkWithLang}
+                      className={`text-[16px] transition-all hover:opacity-100 
+                        ${isActive ? 'opacity-100 font-bold' : 'opacity-60 font-normal'}
                         ${shouldShowWhiteBg ? 'md:text-black' : 'md:text-white'}
                       `}
                     >

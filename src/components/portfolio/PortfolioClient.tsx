@@ -74,8 +74,8 @@ export default function PortfolioClient() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
-          <div className="flex flex-wrap gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-3 md:gap-4 lg:gap-6">
+          <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -127,18 +127,18 @@ export default function PortfolioClient() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="projet-element flex border-b border-black/30 pb-10 mb-10 last:border-none last:pb-0 last:mb-0"
+              className="projet-element flex flex-wrap border-b border-black/30 pb-10 mb-10 last:border-none last:pb-0 last:mb-0"
             >
-              <div className="project-image relative aspect-[4/3] overflow-hidden bg-gray-100 md:w-1/2 lg:pr-20">
+              <div className="project-image relative overflow-hidden w-1/1 md:w-1/2 md:pr-10 lg:pr-20">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="relative object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              <div className="project-infos py-10 flex items-center flex-wrap md:w-1/2 lg:pl-20">
+              <div className="project-infos pt-8 md-py-10 flex items-center flex-wrap w-1/1 md:w-1/2">
                 <div className="box-title">
                   <h3 className="text-[32px] font-bold uppercase mb-0">
                     <Link href={`/fr/portfolio/${project.slug}`}>

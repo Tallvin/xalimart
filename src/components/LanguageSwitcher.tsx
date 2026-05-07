@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="relative group">
+    <div className="relative group hidden">
       <button className="flex items-center gap-1 text-[16px] font-light tracking-widest uppercase hover:opacity-50 transition-opacity">
         {currentLabel}
         <span className="text-[16px] transition-transform group-hover:rotate-180">
