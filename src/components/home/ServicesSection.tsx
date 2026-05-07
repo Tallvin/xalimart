@@ -2,7 +2,7 @@
 export default function ServicesSection() {
   return (
     <section id="services-section" className="services-section home-section bg-[rgba(198, 198, 198, 1)] py-24 text-black">
-      <div className="container mx-auto">
+      <div className="container mx-auto overflow-hidden">
         
         {/* --- HEADER DE LA SECTION --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-20">
