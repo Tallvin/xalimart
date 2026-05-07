@@ -3,6 +3,13 @@ import React from 'react'
 import '../main.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/media/favicon.png',
+  },
+}
 
 export default async function RootLayout({
   children,
