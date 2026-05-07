@@ -12,10 +12,12 @@ async function getProjectData(slug: string, lang: string) {
     year: "2023",
     surface: "4 200 m²",
     client: "Groupe Immobilier Privé",
-    mainImage: "/media/projet/villa-suisse-large.jpg",
+    mainImage: "/media/singleproject/single1.jpg",
     gallery: [
-      "/media/projet/2.jpeg",
-      "/media/projet/3.jpeg"
+      "/media/singleproject/single2.jpg",
+      "/media/singleproject/single3.jpg",
+      "/media/singleproject/single4.jpg",
+      "/media/singleproject/single5.jpg"
     ],
     description: "UNE RÉSIDENCE PENSÉE POUR L'EXCELLENCE.",
     prevSlug: "projet-precedent",
@@ -68,7 +70,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       {/* Single bannière */}
       <section className="single-banner w-full overflow-hidden img-relative">
         <Image 
-          src="/media/projet/villa-suisse-large.jpg" 
+          src="/media/singleproject/single1.jpg" 
           alt=""
           fill
           className="object-cover relative"
@@ -108,7 +110,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       </section>
 
       {/* single Galerie */}
-      <section className="single-gallery pb-25">
+      <section className="single-gallery">
         <div className="container mx-auto">
           <Fancybox options={{ Carousel: { infinite: false } }}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -128,7 +130,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     key={index}
                     href={imagePath} // L'image en grand pour Fancybox
                     data-fancybox="gallery" // Groupe les images pour la navigation
-                    className={`block overflow-hidden cursor-zoom-in col-span-6 img-relative`}
+                    className={`relative block overflow-hidden bg-gray-100 h-[380px] sm:h-[460px] md:h-[516px] cursor-zoom-in img-relative ${columnSpan}`}
                   >
                     <Image
                       src={imagePath}
@@ -146,7 +148,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       </section>
       
       {/* Section mission */}
-      <section className="single-mission py-20 md:py-30 bg-white hidden">
+      <section className="single-mission py-20 md:py-30 bg-white">
         <div className="container mx-auto">
           <div className="flex items-center">
             

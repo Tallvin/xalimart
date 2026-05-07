@@ -35,7 +35,7 @@ export default function AboutUs() {
                     {/* Label avec petite ligne */}
                     <div className="flex items-center gap-4">
                         <span className="w-8 h-[1px] bg-black/50"></span>
-                        <span className="text-black/50 uppercase tracking-widest text-xs font-medium">About us</span>
+                        <span className="text-black/50 uppercase tracking-widest text-xs font-medium">A propos de nous</span>
                     </div>
 
                     {/* Titre principal en ExtraBold */}

@@ -7,6 +7,36 @@ import Link from 'next/link'
 const PROJECTS = [
   {
     id: 1,
+    title: 'VIRTUOSE',
+    category: 'Bureaux',
+    year: '2025',
+    slug: 'villa-suisse',
+    specs: ['520 2 - Res. Villa R+1, Saly'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/virtuose.jpg',
+  },
+  {
+    id: 2,
+    title: 'VILLA I.CHRISS',
+    category: 'Hôtellerie',
+    year: '2026',
+    slug: 'villa-suisse',
+    specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/villa-chriss.jpg',
+  },
+  {
+    id: 3,
+    title: 'Musée des Forces Armées',
+    category: 'Bureaux, Hôtellerie',
+    year: '2023',
+    slug: 'villa-suisse',
+    specs: ['623 m² - Type: Edifice Publics - 2023'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/musee-armees.jpg',
+  },
+  {
+    id: 4,
     title: 'SADIYA TOWER',
     category: 'Bureaux, Hôtellerie',
     year: '2025',
@@ -16,7 +46,7 @@ const PROJECTS = [
     image: '/media/projet/sadiya-tower.jpg',
   },
   {
-    id: 2,
+    id: 5,
     title: 'SCI DIOMBADIO',
     category: 'Résidentiel, Commercial',
     year: '2024',
@@ -26,7 +56,7 @@ const PROJECTS = [
     image: '/media/projet/sci-diombadio.jpg',
   },
   {
-    id: 3,
+    id: 6,
     title: 'VILLA SUISSE',
     category: 'Résidentiel, Urbanisme',
     year: '2022',
@@ -36,7 +66,7 @@ const PROJECTS = [
     image: '/media/projet/villa-suisse.jpg',
   },
   {
-    id: 4,
+    id: 7,
     title: 'THE EDITION',
     category: 'Édifices publics, Bureaux',
     year: '2023',
@@ -56,8 +86,11 @@ export default function PortfolioClient() {
   const [isYearMenuOpen, setIsYearMenuOpen] = useState(false)
 
   const filteredProjects = PROJECTS.filter(p => {
-    const matchCat = activeFilter === 'Tous' || p.category === activeFilter
+    
+    const matchCat = activeFilter === 'Tous' || p.category.includes(activeFilter)
+    
     const matchYear = activeYear === 'Tous' || p.year === activeYear
+    
     return matchCat && matchYear
   })
 
@@ -169,7 +202,7 @@ export default function PortfolioClient() {
 
           {filteredProjects.length === 0 && (
             <div className="py-20 text-center text-gray-400 italic">
-              Aucun projet ne correspond à ces critères.
+              Aucun projet.
             </div>
           )}
         </div>
