@@ -11,7 +11,7 @@ export default function AboutValeurs() {
                         <span className="w-10 h-[1px] bg-[rgba(124, 124, 124, 1)]"></span>
                         <span className="text-[rgba(124, 124, 124, 1)] font-normal">Nos valeurs</span>
                     </div>
-                    <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-[800] uppercase">
+                    <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-bold uppercase">
                         Ce qui nous définit.
                     </h2>
                 </div>

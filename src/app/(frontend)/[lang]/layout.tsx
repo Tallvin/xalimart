@@ -1,8 +1,25 @@
 // src/app/(frontend)/[lang]/layout.tsx
 import React from 'react'
+import localFont from 'next/font/local'
 import '../main.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+
+const centuryGothic = localFont({
+  src: [
+    {
+      path: '../../../../public/fonts/CenturyGothic.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../../../public/fonts/CenturyGothicBold.woff2',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-century-gothic',
+})
 
 export default async function RootLayout({
   children,
@@ -14,7 +31,7 @@ export default async function RootLayout({
   const { lang } = await params
 
   return (
-    <html lang={lang}>
+    <html lang={lang} className={`${centuryGothic.variable}`}>
       <body>
         <Header />
         <main>{children}</main>

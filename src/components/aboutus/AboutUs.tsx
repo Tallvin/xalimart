@@ -39,7 +39,7 @@ export default function AboutUs() {
                     </div>
 
                     {/* Titre principal en ExtraBold */}
-                    <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-[700] text-black uppercase leading-tight tracking-tight">
+                    <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold text-black uppercase">
                         Nés à Dakar. <br />
                         Bâti pour le monde.
                     </h2>

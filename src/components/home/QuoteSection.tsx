@@ -6,7 +6,7 @@ export default function QuoteSection() {
         
         <blockquote className="relative max-w-[760px] mx-auto text-center">
           {/* Texte de la citation */}
-          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold">
+          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-bold">
             "Nous ne construisons pas simplement des bâtiments. 
             Nous créons des lieux de vie qui transcendent 
             le temps et façonnent l'identité urbaine africaine."

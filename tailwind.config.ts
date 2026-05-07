@@ -8,11 +8,17 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // On remplace Termina par Alexandria
+        // Police Alexandria
         alexandria: ['Alexandria', 'sans-serif'],
+        // 'gothic' devient votre nouvelle classe : font-gothic
+        gothic: ['var(--font-century-gothic)', 'sans-serif'],
+        // Si vous voulez qu'elle soit la police sans-serif par défaut :
+        sans: ['var(--font-century-gothic)', 'ui-sans-serif', 'system-ui'],
+
       },
     },
   },
   plugins: [],
 }
 export default config
+

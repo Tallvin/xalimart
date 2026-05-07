@@ -15,7 +15,7 @@ export default function AboutVision() {
                         <span className="text-white/50 uppercase tracking-widest text-xs font-medium">Notre vision</span>
                         </div>
                         
-                        <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-[800] uppercase leading-[1.1] tracking-tighter max-w-md">
+                        <h2 className="text-[30px] md:text-[32px] lg:text-[36px] font-bold uppercase max-w-md">
                             Transformer <br /> les territoires.
                         </h2>
                     </div>
@@ -32,7 +32,7 @@ export default function AboutVision() {
                     <img 
                         src="/media/aboutus/vision.jpg" 
                         alt="Équipe de travail sur plan" 
-                        className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                        className="mix-blend-luminosity hover:mix-blend-normal transition-all duration-300 cursor-pointer w-full h-auto object-cover duration-700 ease-in-out"
                     />
                 </div>
 
