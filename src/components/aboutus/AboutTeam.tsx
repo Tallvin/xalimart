@@ -50,7 +50,7 @@ export default function AboutTeam() {
       <div className="container mx-auto">
         
         {/* --- EN-TÊTE --- */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 mb-20">
+        <div className="flex flex-wrap justify-between items-center gap-10 mb-20">
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <span className="w-8 h-[1px] bg-white/50"></span>

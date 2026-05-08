@@ -6,7 +6,7 @@ export default function AboutVision() {
             <div className="container mx-auto">
                 
                 {/* --- EN-TÊTE : TITRE ET DESCRIPTION --- */}
-                <div className="flex justify-between gap-10 items-center mb-16">
+                <div className="flex flex-wrap justify-between gap-10 items-center mb-16">
                 
                     {/* Gauche : Label et Titre */}
                     <div className="flex flex-col gap-6">

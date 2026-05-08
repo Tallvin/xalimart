@@ -56,18 +56,18 @@ export default function AboutUsSection() {
         </div>
 
         {/* --- COLONNE DROITE : COMPOSITION D'IMAGES --- */}
-        <div className="relative flex justify-end pl-[80px]">
+        <div className="relative flex flex-wrap gap-4 sm:gap-0 sm:justify-end sm:pl-[20px] md:pl-[80px]">
           {/* Image Principale (Immeuble) */}
-          <div className="relative z-10 overflow-hidden w-[562px] h-[469px] mb-[100px]">
+          <div className="relative z-10 overflow-hidden sm:w-[562px] sm:h-[469px] sm:mb-[100px]">
             <img 
               src="/media/about-building.jpg" 
               alt="Architecture Xalimart" 
-              className="w-full h-[500px] object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
 
           {/* Image Secondaire (Chantier) - Chevauchement en bas à gauche */}
-          <div className="absolute bottom-0 left-0 z-20 w-2/3 hidden md:block overflow-hidden border-4 border-white w-[347px] h-[316px]">
+          <div className="sm:absolute bottom-0 left-0 z-20 overflow-hidden sm:border-4 border-white sm:w-[347px] sm:h-[316px]">
             <img 
               src="/media/about-construction.jpg"
               alt="Chantier en cours" 
@@ -76,7 +76,7 @@ export default function AboutUsSection() {
           </div>
 
           {/* Badge Expérience - Noir en bas à droite */}
-          <div className="absolute bottom-0 right-0 z-30 bg-black text-white py-3 px-6 flex items-center gap-5 min-w-[200px]">
+          <div className="sm:absolute bottom-0 right-0 z-30 bg-black text-white py-3 px-6 flex items-center gap-5 min-w-[200px]">
             <span className="text-[40px] font-normal countnumber"><CounterNumber value={10}/>+</span>
             <div className="text-[18px] uppercase tracking-tighter leading-[28px] font-light">
               Années <br /> d'expériences
