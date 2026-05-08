@@ -1,5 +1,39 @@
 // src/components/FeaturedProjectsSection.tsx
 import Link from 'next/link'
+
+const recentsProjects = [
+  {
+    image: "/media/projet6.jpg",
+    tagsdate: "Résidentiel • 2024",
+    title: "Virtuose",
+    link: "/fr/portfolio/villa-suisse/"
+  },
+  {
+    image: "/media/projet7.jpg",
+    tagsdate: "Résidentiel • 2023",
+    title: "VILLA I.CHRISS",
+    link: "/fr/portfolio/villa-suisse/"
+  },
+  {
+    image: "/media/projet8.jpg",
+    tagsdate: "Institutionnel • 2023",
+    title: "Musée des Forces Armées",
+    link: "/fr/portfolio/villa-suisse/"
+  },
+  {
+    image: "/media/projet9.jpg",
+    tagsdate: "Bureau • 2023",
+    title: "Bureaux CDC",
+    link: "/fr/portfolio/villa-suisse/"
+  },
+  {
+    image: "/media/projet10.jpg",
+    tagsdate: "Hotel • 2023",
+    title: "Siège Lonase",
+    link: "/fr/portfolio/villa-suisse/"
+  }
+] 
+
 export default function FeaturedProjectsSection() {
   return (
     <section className="featured-projects-section home-section bg-black py-24 text-white">
@@ -7,7 +41,7 @@ export default function FeaturedProjectsSection() {
         
         {/* --- EN-TÊTE : TITRE ET DESCRIPTION --- */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
-          <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
+          <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-bold uppercase leading-tight">
             Nos projets <br /> récents
           </h2>
           <p className="max-w-xl text-white text-[16px] md:text-base leading-relaxed font-light">
@@ -17,87 +51,36 @@ export default function FeaturedProjectsSection() {
 
         {/* --- GRILLE DE PROJETS --- */}
         {/* Utilisation d'une grille à 6 colonnes pour permettre les variations 3/6 et 2/6 */}
-        <div className="flex flex-wrap justify-between -mx-3">   
-          <div className="project-item w-1/1 md:w-1/2 px-3 py-3 group h-[360px] lg:h-[418px]">
-            <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
-              <a className="absolute inset-0 z-1" href="/fr/portfolio/detail-projet/" title=""></a>
-              <div className="project-image h-full w-full">
-                <img src="/media/projet1.jpg" alt="Virtuose" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="project-infos absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Résidentiel • 2026</span>
-                <h3 className="text-[20px] font-bold mb-1">Virtuose</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Dakar, Sénégal</span>
+        <div className="grid grid-cols-6 gap-6"> 
+          {recentsProjects.map((project, index) => (
+            <div 
+              key={index} 
+              className={`
+                project-item group h-[360px] lg:h-[418px]
+                ${index < 2 ? 'col-span-6 md:col-span-3' : 'col-span-6 md:col-span-2'}
+              `}
+            >
+              <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <a className="absolute inset-0 z-2" href={project.link} title={project.title}></a>
+                
+                <div className="project-image h-full w-full">
+                  <img 
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                </div>
+
+                {/* Overlay sombre pour la lisibilité du texte */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
+
+                <div className="project-infos absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end text-white z-1">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">{project.tagsdate}</span>
+                  <h3 className="text-[20px] font-bold mb-1">{project.title}</h3>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="project-item w-1/1 md:w-1/2 px-3 py-3 group h-[360px] lg:h-[418px]">
-            <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
-              <a className="absolute inset-0 z-1" href="/fr/portfolio/detail-projet/" title=""></a>
-              <div className="project-image h-full w-full">
-                <img src="/media/projet2.jpg" alt="Bureaux CDC" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Résidentiel • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Villa I.Chriss</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Yaoundé, Cameroun</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project-item w-1/1 md:w-1/3 px-3 py-3 group overflow-hidden cursor-pointer h-[360px] lg:h-[418px]">
-            <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
-              <a className="absolute inset-0 z-1" href="/fr/portfolio/detail-projet/" title=""></a>
-              <div className="project-image h-full w-full">
-                <img src="/media/projet3.jpg" alt="Musée des Forces Armées" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase mb-2 opacity-80">Institutionnel • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Musée des Forces Armées</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project-item w-1/1 md:w-1/3 px-3 py-3 group h-[360px] lg:h-[418px]">
-            <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
-              <a className="absolute inset-0 z-1" href="/fr/portfolio/detail-projet/" title=""></a>
-              <div className="project-image h-full w-full">
-                <img src="/media/projet4.jpg" alt="Bureaux CDC" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Bureaux • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Bureaux CDC</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project-item w-1/1 md:w-1/3 px-3 py-3 group h-[360px] lg:h-[418px]">
-            <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
-              <a className="absolute inset-0 z-1" href="/fr/portfolio/detail-projet/" title=""></a>
-              <div className="project-image h-full w-full">
-                <img src="/media/projet5.jpg" alt="Siège Lonase" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Bureaux • 2023</span>
-                <h3 className="text-[20px] font-bold mb-1">Siège Lonase</h3>
-                <div className="flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-white"></span>
-                  <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* --- BOUTON FINAL --- */}

@@ -7,18 +7,17 @@ import Fancybox from '@/components/Fancybox'
 
 async function getProjectData(slug: string, lang: string) {
   return {
-    title: "VILLA I.CHRISS",
-    location: "Dakar, Sénégal",
+    title: "VILLA SUISSE",
+    location: "R+8 Statut",
     year: "2023",
-    surface: "1 500 m²",
-    client: "Privé",
+    surface: "4 200 m²",
+    client: "Groupe Immobilier Privé",
     mainImage: "/media/singleproject/single1.jpg",
     gallery: [
-      "/media/singleproject/single2.jpg", 
-      "/media/singleproject/single3.jpg", 
-      "/media/singleproject/single4.jpg", 
-      "/media/singleproject/single5.jpg", 
-      "/media/singleproject/single6.jpg"
+      "/media/singleproject/single2.jpg",
+      "/media/singleproject/single3.jpg",
+      "/media/singleproject/single4.jpg",
+      "/media/singleproject/single5.jpg"
     ],
     description: "UNE RÉSIDENCE PENSÉE POUR L'EXCELLENCE.",
     prevSlug: "projet-precedent",
@@ -28,7 +27,7 @@ async function getProjectData(slug: string, lang: string) {
 
 export async function generateStaticParams() {
   return [
-    { lang: 'fr', slug: 'detail-projet' }
+    { lang: 'fr', slug: 'villa-suisse' }
   ];
 }
 export const dynamicParams = false;
@@ -44,21 +43,21 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       <Breadcrumbs />
 
       {/* Single-top */}
-      <section className="single-top pb-12">
+      <section className="single-top pb-12 pt-5">
         <div className="container mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <Link href={`/${lang}/${project.prevSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
+            <Link href={`/${lang}/${project.prevSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2 hidden">
                 <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.11706 2.66274C-0.0391501 2.81895 -0.0391501 3.07222 0.11706 3.22843L2.66264 5.77401C2.81885 5.93022 3.07212 5.93022 3.22833 5.77401C3.38454 5.6178 3.38454 5.36454 3.22833 5.20833L0.965588 2.94559L3.22833 0.682845C3.38454 0.526636 3.38454 0.27337 3.22833 0.11716C3.07212 -0.0390496 2.81885 -0.0390496 2.66264 0.11716L0.11706 2.66274ZM0.399902 2.94559V3.34559H30.6654V2.94559V2.54559H0.399902V2.94559Z" fill="#7C7C7C"/>
                 </svg>
                 Précédent
             </Link>
-            <div className="text-center text-[16px] font-light text-black">
-              <span className="uppercase block mb-2">Projet Immobilier</span>
+            <div className="text-center text-[16px] font-light text-black w-full">
+              <span className="uppercase block mb-2">PROJETS · BUREAUX</span>
               <h1 className="text-[32px] md:text-[45px] font-extrabold uppercase">{project.title}</h1>
-              <div className="mt-2">{project.location}</div>
+              <div className="mt-2">2025</div>
             </div>
-            <Link href={`/${lang}/${project.nextSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2">
+            <Link href={`/${lang}/${project.nextSlug}`} className="font-light text-[16px] uppercase text-black/50 hover:text-black flex items-center gap-2 hidden">
                 Suivant
                 <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30.5483 3.22843C30.7045 3.07222 30.7045 2.81895 30.5483 2.66274L28.0028 0.11716C27.8465 -0.0390496 27.5933 -0.0390496 27.4371 0.11716C27.2809 0.27337 27.2809 0.526636 27.4371 0.682845L29.6998 2.94559L27.4371 5.20833C27.2809 5.36454 27.2809 5.6178 27.4371 5.77401C27.5933 5.93022 27.8465 5.93022 28.0028 5.77401L30.5483 3.22843ZM0 2.94559V3.34559H30.2655V2.94559V2.54559H0V2.94559Z" fill="#7C7C7C"/>
@@ -69,12 +68,12 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       </section>
 
       {/* Single bannière */}
-      <section className="single-banner w-full h-[70vh] relative overflow-hidden">
+      <section className="single-banner w-full overflow-hidden img-relative">
         <Image 
           src="/media/singleproject/single1.jpg" 
           alt=""
-          fill 
-          className="object-cover"
+          fill
+          className="object-cover relative"
           priority 
         />
       </section>
@@ -98,7 +97,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 { label: "Client", value: project.client },
                 { label: "Année", value: project.year },
                 { label: "Superficie", value: project.surface },
-                { label: "Localisation", value: project.location }
+                { label: "Programme", value: project.location }
               ].map((info, idx) => (
                 <div key={idx} className="flex justify-between py-4 border-b border-gray-100 last:border-none text-[16px]">
                   <span className="text-black font-semibold">{info.label}</span>
@@ -111,7 +110,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
       </section>
 
       {/* single Galerie */}
-      <section className="single-gallery py-12">
+      <section className="single-gallery">
         <div className="container mx-auto">
           <Fancybox options={{ Carousel: { infinite: false } }}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -131,13 +130,13 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     key={index}
                     href={imagePath} // L'image en grand pour Fancybox
                     data-fancybox="gallery" // Groupe les images pour la navigation
-                    className={`relative block overflow-hidden bg-gray-100 h-[380px] sm:h-[460px] md:h-[516px] cursor-zoom-in ${columnSpan}`}
+                    className={`relative block overflow-hidden bg-gray-100 h-[380px] sm:h-[460px] md:h-[516px] cursor-zoom-in img-relative ${columnSpan}`}
                   >
                     <Image
                       src={imagePath}
                       alt={`Galerie ${project.title} - ${index + 1}`}
                       fill
-                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      className="relative object-cover transition-transform duration-700 hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </a>
@@ -200,9 +199,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
           </div>
         </div>
       </section>
-
-      {/* Single Vidéo */}
-      <VideoSection />
+      
 
       {/* Single others projects */}
       <section className="single-others-projects py-20 md:py-30 bg-black">
@@ -212,13 +209,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
           
             <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
               <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <a className="absolute inset-0 z-1" href="/fr/portfolio/villa-suisse/" title=""></a>
                 <div className="project-image">
                   <img src="/media/singleproject/single8.jpg" alt="Musée" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Institutionnel • 2023</span>
-                  <h3 className="text-[20px] font-bold mb-1">Musée des Forces Armées</h3>
-                  <div className="flex items-center gap-2">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">RESIDENTIEL • 2025</span>
+                  <h3 className="text-[20px] font-bold mb-1">SCI DIOMBADIO</h3>
+                  <div className="flex items-center gap-2 hidden">
                     <span className="w-5 h-[1px] bg-white"></span>
                     <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
                   </div>
@@ -227,13 +225,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             </div>
             <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
               <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <a className="absolute inset-0 z-1" href="/fr/portfolio/villa-suisse/" title=""></a>
                 <div className="project-image">
                   <img src="/media/singleproject/single9.jpg" alt="Bureaux CDC" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
                   <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Bureau • 2023</span>
-                  <h3 className="text-[20px] font-bold mb-1">Bureaux CDC</h3>
-                  <div className="flex items-center gap-2">
+                  <h3 className="text-[20px] font-bold mb-1">The edition</h3>
+                  <div className="flex items-center gap-2 hidden">
                     <span className="w-5 h-[1px] bg-white"></span>
                     <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
                   </div>
@@ -242,13 +241,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
             </div>
             <div className="project-item w-1/1 md:w-1/3 px-3 group h-[380px] lg:h-[418px]">
               <div className="project-cover relative cursor-pointer overflow-hidden h-full w-full">
+                <a className="absolute inset-0 z-1" href="/fr/portfolio/villa-suisse/" title=""></a>
                 <div className="project-image">
                   <img src="/media/singleproject/single10.jpg" alt="Siège Lonase" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="project-infos absolute inset-0 p-6 flex flex-col justify-end text-white">
-                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Hôtel • 2023</span>
-                  <h3 className="text-[20px] font-bold mb-1">Siège Lonase</h3>
-                  <div className="flex items-center gap-2">
+                  <span className="text-[14px] uppercase tracking-widest mb-2 opacity-80">Batiments • 2025</span>
+                  <h3 className="text-[20px] font-bold mb-1">Sadiya Tower</h3>
+                  <div className="flex items-center gap-2 hidden">
                     <span className="w-5 h-[1px] bg-white"></span>
                     <span className="text-[12px] uppercase tracking-wider">Almadies, Dakar</span>
                   </div>

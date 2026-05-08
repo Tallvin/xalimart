@@ -11,11 +11,11 @@ export default function AboutUsSection() {
           {/* Petit label avec ligne */}
           <div className="flex items-center gap-4">
             <span className="w-10 h-[1px] bg-[#c6c6c6]"></span>
-            <span className="text-[#c6c6c6] tracking-widest text-sm">About us</span>
+            <span className="text-[#c6c6c6] tracking-widest text-sm">À propos de nous</span>
           </div>
 
           {/* Titre principal */}
-          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase leading-tight">
+          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-bold uppercase leading-tight">
             Batir l'afrique de <br /> demain
           </h2>
 
@@ -56,7 +56,7 @@ export default function AboutUsSection() {
         </div>
 
         {/* --- COLONNE DROITE : COMPOSITION D'IMAGES --- */}
-        <div className="relative flex justify-end">
+        <div className="relative flex justify-end pl-[80px]">
           {/* Image Principale (Immeuble) */}
           <div className="relative z-10 overflow-hidden w-[562px] h-[469px] mb-[100px]">
             <img 
@@ -69,7 +69,7 @@ export default function AboutUsSection() {
           {/* Image Secondaire (Chantier) - Chevauchement en bas à gauche */}
           <div className="absolute bottom-0 left-0 z-20 w-2/3 hidden md:block overflow-hidden border-4 border-white w-[347px] h-[316px]">
             <img 
-              src="/media/about-construction.jpg" 
+              src="/media/about-construction.jpg"
               alt="Chantier en cours" 
               className="w-full aspect-square object-cover"
             />

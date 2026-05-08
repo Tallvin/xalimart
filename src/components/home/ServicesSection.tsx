@@ -2,7 +2,7 @@
 export default function ServicesSection() {
   return (
     <section id="services-section" className="services-section home-section bg-[rgba(198, 198, 198, 1)] py-24 text-black">
-      <div className="container mx-auto">
+      <div className="container mx-auto overflow-hidden">
         
         {/* --- HEADER DE LA SECTION --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-20">
@@ -12,7 +12,7 @@ export default function ServicesSection() {
               <span className="w-10 h-[1px] bg-[#7C7C7C]"></span>
               <span className="text-[#7C7C7C] text-[16px] font-normal">Services</span>
             </div>
-            <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-extrabold uppercase max-w-md">
+            <h2 className="text-[32px] md:text-[35px] lg:text-[40px] font-bold uppercase max-w-md">
               Ce que nous <br /> concevons.
             </h2>
           </div>

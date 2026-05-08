@@ -20,7 +20,7 @@ export default function HeroSection() {
         
         <div className="container mx-auto">
           <div className="max-w-4xl">
-            <h1 className="text-[35px] md:text-[40px] lg:text-[50px] font-[800] uppercase text-white leading-[1.1] tracking-tighter">
+            <h1 className="text-[35px] md:text-[40px] lg:text-[50px] font-bold uppercase text-white">
               Une vision. <br />
               Une équipe. <br />
               Une signature.

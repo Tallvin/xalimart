@@ -3,16 +3,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothic.eot');
+    src: url('/fonts/CenturyGothic.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/CenturyGothic.woff2') format('woff2'),
+         url('/fonts/CenturyGothic.woff') format('woff'),
+         url('/fonts/CenturyGothic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothicBold.eot');
+    src: url('/fonts/CenturyGothicBold.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/CenturyGothicBold.woff2') format('woff2'),
+         url('/fonts/CenturyGothicBold.woff') format('woff'),
+         url('/fonts/CenturyGothicBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* 2. Vos variables CSS */
 :root {
   --font-alexandria: 'Alexandria', sans-serif;
   --font-alice: "Alice", serif;
   --font-inter: "Inter", sans-serif;
+  --font-century-gothic: "Century Gothic", sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: var(--font-alexandria);
+  font-family: var(--font-century-gothic);
   @apply antialiased text-black bg-white;
 }
 .container{
@@ -145,8 +170,14 @@ form .checkboxes label input:checked + span:after{
   color: #fff;
 }
 /* Portfolio image*/
+.img-relative img,
 .project-image img{
   position: initial !important;
+}
+@media (min-width: 1200px) {
+  .container{
+    max-width: 1280px;
+  }
 }
 @media (max-width: 767px) {
 	header .nav-site.overflow-hidden {

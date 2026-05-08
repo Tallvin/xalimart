@@ -56,7 +56,7 @@ export default function AboutTeam() {
               <span className="w-8 h-[1px] bg-white/50"></span>
               <span className="text-white/50 tracking-widest text-[16px] font-normal ">L'équipe</span>
             </div>
-            <h2 className="text-white text-[30px] md:text-[32px] lg:text-[36px] font-[700] uppercase leading-[1.1] tracking-tighter">
+            <h2 className="text-white text-[30px] md:text-[32px] lg:text-[36px] uppercase font-bold">
               Des experts. <br />
               Une même exigence.
             </h2>
@@ -101,10 +101,10 @@ export default function AboutTeam() {
 
               {/* Infos */}
               <div className="flex flex-col gap-1">
-                <h3 className="text-[18px] font-[500] uppercase tracking-tight text-while">{member.name}</h3>
-                <p className="text-[14px] text-[200] text-while">
+                <h3 className="text-[18px] font-medium uppercase text-white">{member.name}</h3>
+                <div className="text-[14px] font-extralight text-white">
                   {member.role}
-                </p>
+                </div>
               </div>
             </div>
           ))}

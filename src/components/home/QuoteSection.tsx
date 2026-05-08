@@ -2,11 +2,11 @@
 export default function QuoteSection() {
   return (
     <section className="quote-section home-section bg-[rgba(198, 198, 198, 1)] py-32 flex items-center justify-center">
-      <div className="max-w-[760px] mx-auto text-center">
+      <div className="container mx-auto">
         
-        <blockquote className="relative">
+        <blockquote className="relative max-w-[760px] mx-auto text-center">
           {/* Texte de la citation */}
-          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-extrabold">
+          <h2 className="text-black text-[32px] md:text-[35px] lg:text-[40px] font-bold">
             "Nous ne construisons pas simplement des bâtiments. 
             Nous créons des lieux de vie qui transcendent 
             le temps et façonnent l'identité urbaine africaine."

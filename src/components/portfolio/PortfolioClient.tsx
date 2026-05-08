@@ -8,42 +8,72 @@ const PROJECTS = [
   {
     id: 1,
     title: 'VIRTUOSE',
-    category: 'Bureaux, Hôtellerie',
+    category: 'Bureaux',
     year: '2025',
-    slug: 'detail-projet',
-    specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
+    slug: 'villa-suisse',
+    specs: ['520 2 - Res. Villa R+1, Saly'],
     description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
-    image: '/media/portfolio1.jpg',
+    image: '/media/projet/virtuose.jpg',
   },
   {
     id: 2,
     title: 'VILLA I.CHRISS',
-    category: 'Résidentiel, Commercial',
-    year: '2024',
-    slug: 'detail-projet',
-    specs: ['520 2 - Res. Villa R+1, Saly'],
-    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/portfolio2.jpg',
+    category: 'Hôtellerie',
+    year: '2026',
+    slug: 'villa-suisse',
+    specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/villa-chriss.jpg',
   },
   {
     id: 3,
-    title: 'Bureau CDC',
-    category: 'Résidentiel, Urbanisme',
-    year: '2022',
-    slug: 'detail-projet',
-    specs: ['447 m² - Bur. SS+RDC+MEZZ+10 étages'],
-    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/portfolio3.jpg',
+    title: 'Musée des Forces Armées',
+    category: 'Bureaux, Hôtellerie',
+    year: '2023',
+    slug: 'villa-suisse',
+    specs: ['623 m² - Type: Edifice Publics - 2023'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/musee-armees.jpg',
   },
   {
     id: 4,
-    title: 'Muséé des forces armées',
+    title: 'SADIYA TOWER',
+    category: 'Bureaux, Hôtellerie',
+    year: '2025',
+    slug: 'villa-suisse',
+    specs: ['Superficie: 1742 m² - Type : Bâtiments Mixte (Résidences, bureaux, Hôtellerie)'],
+    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
+    image: '/media/projet/sadiya-tower.jpg',
+  },
+  {
+    id: 5,
+    title: 'SCI DIOMBADIO',
+    category: 'Résidentiel, Commercial',
+    year: '2024',
+    slug: 'villa-suisse',
+    specs: ['Superficie: 512 m² - Résidentiel - 2025'],
+    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
+    image: '/media/projet/sci-diombadio.jpg',
+  },
+  {
+    id: 6,
+    title: 'VILLA SUISSE',
+    category: 'Résidentiel, Urbanisme',
+    year: '2022',
+    slug: 'villa-suisse',
+    specs: ['447 m² - Bur. SS+RDC+MEZZ+10 étages'],
+    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
+    image: '/media/projet/villa-suisse.jpg',
+  },
+  {
+    id: 7,
+    title: 'THE EDITION',
     category: 'Édifices publics, Bureaux',
     year: '2023',
-    slug: 'detail-projet',
-    specs: ['623 m² - Type: Edifice Publics - 2023'],
+    slug: 'villa-suisse',
+    specs: ['Superficie: 550 m² - Type: Résidentiel - 2024'],
     description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/portfolio4.jpg',
+    image: '/media/projet/the-edition.jpg',
   },
 ]
 
@@ -56,8 +86,11 @@ export default function PortfolioClient() {
   const [isYearMenuOpen, setIsYearMenuOpen] = useState(false)
 
   const filteredProjects = PROJECTS.filter(p => {
-    const matchCat = activeFilter === 'Tous' || p.category === activeFilter
+    
+    const matchCat = activeFilter === 'Tous' || p.category.includes(activeFilter)
+    
     const matchYear = activeYear === 'Tous' || p.year === activeYear
+    
     return matchCat && matchYear
   })
 
@@ -151,8 +184,8 @@ export default function PortfolioClient() {
                     ))}
                   </div>
                 </div>
-                <div className="text-[16px] text-black font-light mb-8">{project.description}</div>
-                <div className="link">
+                <div className="text-[16px] text-black font-light mb-8 hidden w-full">{project.description}</div>
+                <div className="link w-full">
                   <Link
                     href={`/fr/portfolio/${project.slug}`}
                     className="inline-flex items-center gap-4 group/btn text-[16px] bg-black/40 text-black font-light px-5 py-3 rounded-[30px] hover:bg-black hover:text-white"
@@ -169,7 +202,7 @@ export default function PortfolioClient() {
 
           {filteredProjects.length === 0 && (
             <div className="py-20 text-center text-gray-400 italic">
-              Aucun projet ne correspond à ces critères.
+              Aucun projet.
             </div>
           )}
         </div>

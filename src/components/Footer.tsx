@@ -73,7 +73,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold  text-[16px]">Email</h4>
-                  <p className="text-white font-light text-[16px]">contact@xalimartgroup.sn</p>
+                  <p className="text-white font-light text-[16px]"><a className="text-white" href="mailto:contact@xalimartgroup.sn" title="contact@xalimartgroup.sn">contact@xalimartgroup.sn</a></p>
                 </div>
               </div>
 
@@ -86,7 +86,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold  text-[16px]">Téléphone</h4>
-                  <p className="text-white font-light text-[16px]">+221 77 624 07 07</p>
+                  <p className="text-white font-light text-[16px]"><a className="text-white" href="tel:+221 77 624 07 07" title="+221 77 624 07 07">+221 77 624 07 07</a></p>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ export default function Footer() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-xs text-white font-light text-[14px]">Company</label>
+                <label className="text-xs text-white font-light text-[14px]">Entreprise</label>
                 <input name="company" type="text" className="bg-transparent border-b border-white py-0 outline-none focus:border-white transition-colors" />
               </div>
 
@@ -200,17 +200,17 @@ export default function Footer() {
               <div className="w-48">
                 <img src="/media/logo-footer.png" alt="Xalimart Group" className="w-full object-contain" />
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 ">
                 {/* Facebook */}
-                <a href="#" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                <a href="https://www.facebook.com/share/1E8W3EFGNh/?mibextid=wwXIfr" target="_blank" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                 </a>
                 {/* Instagram */}
-                <a href="#" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                <a href="https://www.instagram.com/xalimart_group?igsh=djlibDJxZHN2cGY5" target="_blank" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
                 {/* LinkedIn */}
-                <a href="#" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                <a href="#" target="_blank" className="hidden w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
               </div>
@@ -223,10 +223,10 @@ export default function Footer() {
             <div className="flex flex-col  gap-4 md:gap-6">
               <h4 className="text-[18px] font-extrabold uppercase">Navigation</h4>
               <ul className="flex flex-col gap-4 text-white-300 text-[14px] font-light">
-                <li><a href="/fr/" className="text-white hover:font-semibold transition-colors">Home</a></li>
-                <li><a href="/fr/about-us/" className="text-white hover:font-semibold transition-colors">About us</a></li>
+                <li><a href="/fr/" className="text-white hover:font-semibold transition-colors">Accueil</a></li>
+                <li><a href="/fr/about-us/" className="text-white hover:font-semibold transition-colors">À propos de nous</a></li>
                 <li><a href="/fr/#services-section/" className="text-white hover:font-semibold transition-colors">Services</a></li>
-                <li><a href="/fr/portfolio/" className="text-white hover:font-semibold transition-colors">Projects</a></li>
+                <li><a href="/fr/portfolio/" className="text-white hover:font-semibold transition-colors">Projets</a></li>
                 <li><a href="/fr/contact" className="text-white hover:font-semibold transition-colors">Contact</a></li>
               </ul>
             </div>
@@ -247,7 +247,7 @@ export default function Footer() {
           {/* --- PARTIE INFÉRIEURE : COPYRIGHT ET LÉGAL --- */}
           <div className="pt-5 md:pt-8 flex flex-col md:flex-row justify-center items-center  gap-4 md:gap-6">
             <p className="text-white font-extralight text-[12px]">
-              Xalimart Group © 2026. All Rights Reserved.
+              Xalimart Group © 2026. Tous droits réservés.
             </p>
 
             <div className="flex gap-8 text-white font-extralight text-[12px] hidden">
