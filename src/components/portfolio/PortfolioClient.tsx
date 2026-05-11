@@ -47,7 +47,7 @@ const PROJECTS = [
   },
   {
     id: 5,
-    title: 'SCI DIOMBADIO',
+    title: 'SCI DOMBADIA',
     category: 'Résidentiel, Commercial',
     year: '2024',
     slug: 'villa-suisse',
