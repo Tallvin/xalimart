@@ -3,94 +3,19 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const PROJECTS = [
-  {
-    id: 1,
-    title: 'VIRTUOSE',
-    category: 'Bureaux',
-    year: '2025',
-    slug: 'villa-suisse',
-    specs: ['520 2 - Res. Villa R+1, Saly'],
-    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
-    image: '/media/projet/virtuose.jpg',
-  },
-  {
-    id: 2,
-    title: 'VILLA I.CHRISS',
-    category: 'Hôtellerie',
-    year: '2026',
-    slug: 'villa-suisse',
-    specs: ['305 m² - Type : Res. RDC + Mez + 8 étages - 2026'],
-    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
-    image: '/media/projet/villa-chriss.jpg',
-  },
-  {
-    id: 3,
-    title: 'Musée des Forces Armées',
-    category: 'Bureaux, Hôtellerie',
-    year: '2023',
-    slug: 'villa-suisse',
-    specs: ['623 m² - Type: Edifice Publics - 2023'],
-    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
-    image: '/media/projet/musee-armees.jpg',
-  },
-  {
-    id: 4,
-    title: 'SADIYA TOWER',
-    category: 'Bureaux, Hôtellerie',
-    year: '2025',
-    slug: 'villa-suisse',
-    specs: ['Superficie: 1742 m² - Type : Bâtiments Mixte (Résidences, bureaux, Hôtellerie)'],
-    description: 'Immeuble de grande hauteur alliant espaces de bureaux premium et surfaces commerciales au cœur du nouveau',
-    image: '/media/projet/sadiya-tower.jpg',
-  },
-  {
-    id: 5,
-    title: 'SCI DIOMBADIO',
-    category: 'Résidentiel, Commercial',
-    year: '2024',
-    slug: 'villa-suisse',
-    specs: ['Superficie: 512 m² - Résidentiel - 2025'],
-    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/projet/sci-diombadio.jpg',
-  },
-  {
-    id: 6,
-    title: 'VILLA SUISSE',
-    category: 'Résidentiel, Urbanisme',
-    year: '2022',
-    slug: 'villa-suisse',
-    specs: ['447 m² - Bur. SS+RDC+MEZZ+10 étages'],
-    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/projet/villa-suisse.jpg',
-  },
-  {
-    id: 7,
-    title: 'THE EDITION',
-    category: 'Édifices publics, Bureaux',
-    year: '2023',
-    slug: 'villa-suisse',
-    specs: ['Superficie: 550 m² - Type: Résidentiel - 2024'],
-    description: "Ensemble résidentiel haut de gamme conçu autour d'un concept de vie communautaire et d'espaces verts généreux.",
-    image: '/media/projet/the-edition.jpg',
-  },
-]
+import { PROJECTS } from '@/data/projects'
 
 const CATEGORIES = ['Tous', 'Résidentiel', 'Commercial', 'Hôtellerie', 'Bureaux', 'Édifices publics', 'Urbanisme']
 const YEARS = ['Tous', '2026', '2025', '2024', '2023', '2022']
 
-export default function PortfolioClient() {
+export default function PortfolioClient({ lang = 'fr' }: { lang?: string }) {
   const [activeFilter, setActiveFilter] = useState('Tous')
   const [activeYear, setActiveYear] = useState('Tous')
   const [isYearMenuOpen, setIsYearMenuOpen] = useState(false)
 
   const filteredProjects = PROJECTS.filter(p => {
-    
     const matchCat = activeFilter === 'Tous' || p.category.includes(activeFilter)
-    
     const matchYear = activeYear === 'Tous' || p.year === activeYear
-    
     return matchCat && matchYear
   })
 
@@ -164,7 +89,7 @@ export default function PortfolioClient() {
             >
               <div className="project-image relative overflow-hidden w-1/1 md:w-1/2 md:pr-10 lg:pr-20">
                 <Image
-                  src={project.image}
+                  src={project.thumbnail}
                   alt={project.title}
                   fill
                   className="relative object-cover transition-transform duration-700 group-hover:scale-105"
@@ -174,7 +99,7 @@ export default function PortfolioClient() {
               <div className="project-infos pt-8 md-py-10 flex items-center flex-wrap w-1/1 md:w-1/2">
                 <div className="box-title">
                   <h3 className="text-[32px] font-bold uppercase mb-0">
-                    <Link href={`/fr/portfolio/${project.slug}`}>
+                    <Link href={`/${lang}/portfolio/${project.slug}`}>
                       {project.title}
                     </Link>
                   </h3>
@@ -187,7 +112,7 @@ export default function PortfolioClient() {
                 <div className="text-[16px] text-black font-light mb-8 hidden w-full">{project.description}</div>
                 <div className="link w-full">
                   <Link
-                    href={`/fr/portfolio/${project.slug}`}
+                    href={`/${lang}/portfolio/${project.slug}`}
                     className="inline-flex items-center gap-4 group/btn text-[16px] bg-black/40 text-black font-light px-5 py-3 rounded-[30px] hover:bg-black hover:text-white"
                   >
                     Voir le projet

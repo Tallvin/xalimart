@@ -4,6 +4,7 @@ export function generateStaticParams() {
 
 import PortfolioClient from '@/components/portfolio/PortfolioClient'
 
-export default function ProjectsPage() {
-  return <PortfolioClient />
+export default async function ProjectsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  return <PortfolioClient lang={lang} />
 }
