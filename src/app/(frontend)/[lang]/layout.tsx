@@ -4,6 +4,13 @@ import localFont from 'next/font/local'
 import '../main.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/media/favicon.png',
+  },
+}
 
 const centuryGothic = localFont({
   src: [

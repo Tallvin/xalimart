@@ -80,17 +80,14 @@ const PROJECTS = [
 const CATEGORIES = ['Tous', 'Résidentiel', 'Commercial', 'Hôtellerie', 'Bureaux', 'Édifices publics', 'Urbanisme']
 const YEARS = ['Tous', '2026', '2025', '2024', '2023', '2022']
 
-export default function PortfolioClient() {
+export default function PortfolioClient({ lang = 'fr' }: { lang?: string }) {
   const [activeFilter, setActiveFilter] = useState('Tous')
   const [activeYear, setActiveYear] = useState('Tous')
   const [isYearMenuOpen, setIsYearMenuOpen] = useState(false)
 
   const filteredProjects = PROJECTS.filter(p => {
-    
     const matchCat = activeFilter === 'Tous' || p.category.includes(activeFilter)
-    
     const matchYear = activeYear === 'Tous' || p.year === activeYear
-    
     return matchCat && matchYear
   })
 
@@ -164,7 +161,7 @@ export default function PortfolioClient() {
             >
               <div className="project-image relative overflow-hidden w-1/1 md:w-1/2 md:pr-10 lg:pr-20">
                 <Image
-                  src={project.image}
+                  src={project.thumbnail}
                   alt={project.title}
                   fill
                   className="relative object-cover transition-transform duration-700 group-hover:scale-105"
@@ -174,7 +171,7 @@ export default function PortfolioClient() {
               <div className="project-infos pt-8 md-py-10 flex items-center flex-wrap w-1/1 md:w-1/2">
                 <div className="box-title">
                   <h3 className="text-[32px] font-bold uppercase mb-0">
-                    <Link href={`/fr/portfolio/${project.slug}`}>
+                    <Link href={`/${lang}/portfolio/${project.slug}`}>
                       {project.title}
                     </Link>
                   </h3>
@@ -187,7 +184,7 @@ export default function PortfolioClient() {
                 <div className="text-[16px] text-black font-light mb-8 hidden w-full">{project.description}</div>
                 <div className="link w-full">
                   <Link
-                    href={`/fr/portfolio/${project.slug}`}
+                    href={`/${lang}/portfolio/${project.slug}`}
                     className="inline-flex items-center gap-4 group/btn text-[16px] bg-black/40 text-black font-light px-5 py-3 rounded-[30px] hover:bg-black hover:text-white"
                   >
                     Voir le projet
